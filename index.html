@@ -6,38 +6,58 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>JonnyAFK — Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <style>
         :root{
             --neon:#00f3d9;
             --neon-2:#00aaff;
             --bg:#050617;
             --glass: rgba(255,255,255,0.04);
+            --header-bg: #040405;
+            --accent-blue: #0ea5ff;
+            --hand-color: #f7fbff;
         }
-        html,body{height:100%;margin:0;font-family:Varela Round,system-ui,Arial;background:#000}
-        .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
-        /* background video fills the hero */
-        .bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:brightness(.55)}
+        html,body{height:100%;margin:0;font-family:Varela Round,system-ui,Arial;background:#000;font-size:18px}
+        /* header sits near the top; keep a little top padding so hero content clears it */
+        .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000;padding-top:140px}
+        /* Top header */
+        .site-header{position:fixed;left:0;right:0;top:0;height:140px;background:linear-gradient(180deg,var(--header-bg),#000);border-bottom:1px solid rgba(255,255,255,0.03);z-index:100}
+        .site-header .header-inner{max-width:1360px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:8px 28px}
+        .brand{height:220px;display:block;margin-top:-60px}
+        .brand-wrap{display:flex;align-items:center;gap:12px}
+        .handwritten{font-family: 'Shadows Into Light', cursive;color:var(--hand-color);opacity:0.95;font-size:22px;display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1}
+        .handwritten .handline{font-size:14px;opacity:0.85;margin-top:4px}
+        .topnav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .pill{display:inline-block;padding:12px 16px;border-radius:8px;background:rgba(0,0,0,0.45);border:1px solid rgba(0,170,255,0.05);color:var(--neon);text-decoration:none;font-weight:700;font-size:16px}
+        .pill:hover{box-shadow:0 10px 30px rgba(0,170,255,0.06)}
+        .pill.cta-app{background:linear-gradient(90deg,var(--accent-blue),var(--neon));color:#001;box-shadow:0 8px 30px rgba(14,165,255,0.12);border:1px solid rgba(255,255,255,0.06);padding:14px 20px;font-size:17px}
+        .discord-cta{background:linear-gradient(90deg,#5865F2,#7C88FF);color:#fff;font-weight:800;padding:12px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 14px 40px rgba(88,101,242,0.12),0 0 60px rgba(124,136,255,0.04);transition:transform .18s ease}
+        .discord-cta:hover{transform:translateY(-6px) scale(1.02)}
+        .discord-cta.pulse{animation:discordPulse 2.6s infinite}
+        @keyframes discordPulse{0%{box-shadow:0 10px 30px rgba(88,101,242,0.08)}50%{box-shadow:0 18px 60px rgba(88,101,242,0.14)}100%{box-shadow:0 10px 30px rgba(88,101,242,0.08)}}
+        /* background video, overlay and media frame */
+        .bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:brightness(.55);pointer-events:none}
         .overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));backdrop-filter:blur(2px);z-index:2}
-        .center{position:relative;z-index:3;max-width:1100px;width:100%;padding:60px 30px;box-sizing:border-box;display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center}
 
-        /* Left column: title + nav */
-        .left{color:var(--neon);}
-        .site-title{font-family:Orbitron,monospace;color:var(--neon);font-size:48px;margin:0 0 10px;letter-spacing:2px;text-shadow:0 0 18px rgba(0,243,217,0.15)}
-        .tag{color:#9ef6e8;opacity:0.95;margin-bottom:24px}
-        .buttons{display:flex;flex-wrap:wrap;gap:14px}
-        .btn{--pad:18px 26px;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(0,255,230,0.08);color:var(--neon);padding:var(--pad);border-radius:12px;font-weight:700;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease;position:relative;overflow:hidden}
-        .btn:focus{outline:none}
-        .btn:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 8px 30px rgba(0,170,255,0.12),0 0 30px rgba(0,243,217,0.06)}
-        .btn:active{transform:translateY(-2px) scale(.995)}
-        .btn .label{display:inline-block;position:relative;z-index:2}
-        .btn .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 10% 10%, rgba(0,243,217,0.12), transparent 12%), radial-gradient(circle at 90% 90%, rgba(0,170,255,0.08), transparent 20%);opacity:0;transition:opacity .25s}
-        .btn:hover .glow{opacity:1}
+        /* Media frame (poster or mp4) — preserves aspect ratio and avoids stretching */
+        /* media frame reduced to ~80% of previous width so it fits comfortably on screen */
+        .media-frame{position:relative;z-index:40;width:min(1088px,73.6vw);max-width:1088px;aspect-ratio:16/9;background:linear-gradient(180deg, rgba(0,0,0,0.72), rgba(8,8,10,0.6));padding:24px;border-radius:6px;border:32px solid #07080a;box-shadow:0 10px 80px rgba(0,0,0,0.85);overflow:hidden}
+        .media{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:6px;background:#000;display:block}
+        .logo-overlay{position:absolute;left:28px;top:28px;width:320px;height:auto;z-index:6;pointer-events:none}
 
-        /* Right column: logo card */
-        .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:22px;border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);box-shadow:0 10px 40px rgba(0,0,0,0.6)}
-        .logo-wrap{display:flex;align-items:center;justify-content:center;position:relative;height:320px}
-        .logo{max-width:100%;max-height:100%;transform:translateZ(0);transition:transform .35s ease,filter .35s}
-        .logo.small{width:300px}
+        /* Gear decorations — PNGs will be dynamically loaded if present */
+        .gear-wrapper{position:absolute;inset:0;pointer-events:none;z-index:120}
+        .gear-item{position:absolute;width:160px;height:160px;transform-origin:center center;opacity:0.96}
+        .gear-item{display:block;mix-blend-mode:screen}
+        .gear-item.small{width:96px;height:96px}
+        .gear-item.xsmall{width:64px;height:64px}
+        .gear-item.paused{animation-play-state:paused}
+        .center{position:relative;z-index:3;max-width:1100px;width:100%;padding:40px 30px 80px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:36px}
+
+        /* Left column hidden (header nav used) */
+        .left{display:none}
+
+        /* Right column: media frame already handled */
 
         /* Floating decorative orbs */
         .orb{position:absolute;border-radius:50%;filter:blur(18px);opacity:.28;mix-blend-mode:screen}
@@ -45,19 +65,80 @@
         .orb.b{width:160px;height:160px;left:-40px;bottom:40px;background:linear-gradient(180deg,var(--neon-2),transparent)}
 
         /* Footer */
-        footer{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#8ff;opacity:0.75;font-size:13px;z-index:4}
+        footer{position:fixed;left:0;right:0;bottom:12px;text-align:center;color:var(--hand-color);opacity:0.95;font-size:18px;z-index:400;font-family:'Shadows Into Light', cursive;padding:6px 0;pointer-events:none}
+        footer .footer-links{pointer-events:auto}
+        .footer-links{margin:0 auto;max-width:1260px;padding:6px 0;letter-spacing:2px}
+        /* Social bar (bottom center) */
+        /* raise social bar a bit so it's visible on tall headers/fullscreen */
+        .social-bar{position:fixed;left:0;right:0;bottom:64px;display:flex;justify-content:center;gap:12px;z-index:110}
+        .social-btn{display:inline-block;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--neon);text-decoration:none;border:1px solid rgba(255,255,255,0.03);font-weight:700;font-size:15px}
 
         /* Responsive */
-        @media(max-width:900px){.center{grid-template-columns:1fr;gap:20px}.logo-wrap{height:220px}.site-title{font-size:34px}}
+        @media(max-width:900px){
+            .center{grid-template-columns:1fr;gap:20px}
+            .logo-wrap{height:220px}
+            .site-title{font-size:34px}
+            .discord-cta{display:none}
+        }
         /* small ripple */
         .ripple{position:absolute;border-radius:50%;transform:scale(0);animation:ripple .7s ease-out;background:rgba(0,255,230,0.2);pointer-events:none}
         @keyframes ripple{to{transform:scale(4);opacity:0}}
+        /* small preview that appears when hovering the App CTA */
+        .app-preview{position:fixed;width:340px;height:192px;border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.6);z-index:999;background:#000;border:1px solid rgba(255,255,255,0.04);display:none;opacity:0;transition:opacity .15s ease}
+        .app-preview.visible{display:block;opacity:1}
+        .app-preview video{width:100%;height:100%;object-fit:cover;display:block}
+        /* media controls under the frame */
+        .media-controls{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:14px}
+        .song-preview{width:220px;height:124px;object-fit:cover;border-radius:6px;border:1px solid rgba(255,255,255,0.04)}
+        .volume-btn{background:transparent;border:0;padding:6px;border-radius:8px;cursor:pointer}
+        .volume-btn img{width:48px;height:48px;display:block}
+        /* gear rotation */
+        @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+        @keyframes volPulse{
+            0%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(0,170,255,0))}
+            50%{transform:scale(1.18);filter:drop-shadow(0 10px 30px rgba(0,170,255,0.22))}
+            100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(0,170,255,0))}
+        }
+        @keyframes volColorPulse{
+            0%{filter:drop-shadow(0 0 0 rgba(0,170,255,0)) hue-rotate(0deg) saturate(1) brightness(1)}
+            25%{filter:drop-shadow(0 6px 18px rgba(0,170,255,0.18)) hue-rotate(20deg) saturate(1.2) brightness(1.06)}
+            50%{filter:drop-shadow(0 14px 36px rgba(255,40,180,0.28)) hue-rotate(180deg) saturate(1.6) brightness(1.12)}
+            75%{filter:drop-shadow(0 8px 22px rgba(0,170,255,0.18)) hue-rotate(340deg) saturate(1.2) brightness(1.02)}
+            100%{filter:drop-shadow(0 0 0 rgba(0,170,255,0)) hue-rotate(0deg) saturate(1) brightness(1)}
+        }
+        .vol-need-click{animation:volPulse 1s ease-in-out infinite;border-radius:8px;box-shadow:0 6px 30px rgba(14,165,255,0.14);transform-origin:center center}
+        /* grow and pulse the speaker image itself for clearer affordance */
+        .vol-need-click img{animation:volPulse 1s ease-in-out infinite, volColorPulse 1.2s ease-in-out infinite;transform-origin:center center;width:36px;height:36px;transition:width .12s ease,height .12s ease,transform .12s ease}
     </style>
 </head>
 <body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand-wrap">
+                <img src="JonnyAFK Clear Background.png" alt="JonnyAFK" class="brand">
+                <div class="handwritten">
+                    <div>Music · Art · Shenanigans</div>
+                    <div class="handline">All in one hub</div>
+                </div>
+            </div>
+            <nav class="topnav">
+                <a class="pill" href="music.html">Music</a>
+                <a class="pill" href="art.html">Art</a>
+                <a class="pill" href="merch.html">Merch</a>
+                <a class="pill" href="apps.html">Apps</a>
+                <a class="pill" href="about.html">About</a>
+                <a class="pill" href="contact.html">Contact</a>
+                <a class="pill cta-app" href="https://your-song-maker.base44.app" target="_blank" rel="noopener">Your Song Maker</a>
+                <!-- Discord CTA (replace href with your invite if needed) -->
+                <a id="discordCTA" class="pill discord-cta" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener" title="Join my Discord">Join Discord</a>
+                <button id="volToggleBtn" class="pill" aria-label="Toggle volume" style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px">
+                    <img id="volIcon" src="Neon blue volume on .png" alt="volume" style="width:28px;height:28px"> 
+                </button>
+            </nav>
+        </div>
+    </header>
     <main class="hero" id="hero">
         <div class="overlay" aria-hidden></div>
-        <video class="bg-video" id="bgVideo" autoplay muted loop playsinline src="Landing%20Page.mp4"></video>
         <div class="center">
             <div class="left">
                 <h1 class="site-title">JonnyAFK</h1>
@@ -72,16 +153,46 @@
                 </div>
             </div>
             <aside class="card">
-                <div class="logo-wrap" id="logoWrap">
-                    <img src="JonnyAFK_logo.png" alt="JonnyAFK" class="logo small" id="mainLogo">
-                    <div class="orb a" aria-hidden></div>
-                    <div class="orb b" aria-hidden></div>
-                </div>
-                <div style="margin-top:12px;color:#bff;opacity:0.9;text-align:center">Your central hub. Click any button to open that section.</div>
+                    <div class="media-frame" id="mediaFrame">
+                        <!-- gear decorations removed; add PNG gears to repo later if desired -->
+                        <video class="media" id="heroMedia" playsinline muted poster="still%20landing%20page.png">
+                            <source src="Landing Page.mp4" type="video/mp4">
+                            <source src="Landing%20Page%20(1).webm" type="video/webm">
+                            <!-- fallback image -->
+                            <img src="still%20landing%20page.png" alt="JonnyAFK poster">
+                        </video>
+                        <!-- background looping video (borderless, no controls) -->
+                        <video id="backgroundVideo" class="bg-video" autoplay muted loop playsinline>
+                            <source src="Landing Page.mp4" type="video/mp4">
+                        </video>
+                        <!-- center overlay removed per request -->
+                    </div>
+                    <div style="margin-top:12px;color:#bff;opacity:0.9;text-align:center;font-size:15px">Your central hub. Click any button to open that section.</div>
             </aside>
         </div>
-        <footer>© JonnyAFK — Built with love · Drop me links to add</footer>
+        <div class="social-bar" aria-hidden>
+            <a class="social-btn" href="https://www.youtube.com/@jonnyafk" target="_blank" rel="noopener" title="YouTube">YouTube</a>
+            <a class="social-btn" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener" title="Discord">Discord</a>
+            <a class="social-btn" href="https://music.youtube.com/search?q=jonnyafk" target="_blank" rel="noopener" title="YouTube Music">YT Music</a>
+            <a class="social-btn" href="https://open.spotify.com/search/jonnyafk" target="_blank" rel="noopener" title="Spotify">Spotify</a>
+            <a class="social-btn" href="https://www.instagram.com/jonny_afk" target="_blank" rel="noopener" title="Instagram">Instagram</a>
+            <a class="social-btn" href="https://www.tiktok.com/@jonny_afk0" target="_blank" rel="noopener" title="TikTok">TikTok</a>
+            <a class="social-btn" href="https://www.pandora.com/search/jonnyafk" target="_blank" rel="noopener" title="Pandora">Pandora</a>
+            <a class="social-btn" href="https://www.facebook.com/jonnyafk" target="_blank" rel="noopener" title="Facebook">Facebook</a>
+            <a class="social-btn" href="https://www.patreon.com/jonnyafk" target="_blank" rel="noopener" title="Patreon">Patreon</a>
+            <a class="social-btn" href="https://music.apple.com/search?term=jonnyafk" target="_blank" rel="noopener" title="Apple Music">Apple Music</a>
+            <a class="social-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank" rel="noopener" title="Redbubble">Redbubble</a>
+            <a class="social-btn" href="mailto:jonnyafk@hotmail.com" title="Email">Email</a>
+        </div>
+    
+    <!-- site audio (start muted/off) -->
+    <audio id="bgAudio" src="the song.mp3" loop preload="auto"></audio>
     </main>
+
+    <!-- footer moved outside main to sit fixed at bottom center -->
+    <footer>
+        <div class="footer-links">© JonnyAFK — Built with love</div>
+    </footer>
 
         <script>
         // Button ripple + click handler
@@ -106,124 +217,322 @@
             })
     })
 
-    // Logo parallax based on mouse movement over hero
+    // Header logo parallax based on mouse movement over hero (subtle)
     const hero = document.getElementById('hero');
-    const logo = document.getElementById('mainLogo');
-    const orbA = document.querySelector('.orb.a');
-    const orbB = document.querySelector('.orb.b');
+    const headerLogo = document.querySelector('.brand');
 
+    // Guard the hero listeners so a non-element won't throw and halt the script
+    if(hero && typeof hero.addEventListener === 'function'){
         hero.addEventListener('mousemove', e=>{
-            const rect = hero.getBoundingClientRect();
-            const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    logo.style.transform = `translate3d(${px*12}px,${py*8}px,0) rotate(${px*3}deg)`;
-    orbA.style.transform = `translate3d(${px*-30}px,${py*-20}px,0)`;
-            orbB.style.transform = `translate3d(${px*20}px,${py*18}px,0)`;
+            try{
+                const rect = hero.getBoundingClientRect();
+                const px = (e.clientX - rect.left) / rect.width - 0.5;
+                const py = (e.clientY - rect.top) / rect.height - 0.5;
+                if(headerLogo) headerLogo.style.transform = `translate3d(${px*10}px,${py*6}px,0) rotate(${px*2}deg)`;
+            }catch(err){
+                console.warn('parallax handler failed', err);
+            }
         });
 
         hero.addEventListener('mouseleave', ()=>{
-            logo.style.transform='translate3d(0,0,0)';orbA.style.transform='';orbB.style.transform='';
-        })
-        // Pause video on small devices to save bandwidth
-        (function(){
-            const v = document.getElementById('bgVideo');
+            try{ if(headerLogo) headerLogo.style.transform='translate3d(0,0,0)'; }catch(e){/* swallow */}
+        });
+    } else {
+        console.warn('`hero` element missing or does not support addEventListener:', hero);
+    }
+
+    // Pause background media on small devices to save bandwidth
+    (function(){
+        const v = document.getElementById('backgroundVideo') || document.getElementById('heroMedia');
+        try{
+            if(window.matchMedia('(max-width:600px)').matches && v && !v.paused) v.pause();
+        }catch(e){}
+    })();
+
+    
+
+    // Two meshed gear pairs (top-right, left-middle) that 'tick' like a clock: rotate for 0.1s then stay still 0.9s
+    (function(){
+        const pairs = [
+            {files:['gear 4.png','gear 2.png'], anchor:'top-right', style:{right:'6%', top:'6%'}, sizes:[160,96]},
+            {files:['gear 1.png','gear 3.png'], anchor:'left-middle', style:{left:'6%', top:'50%'}, sizes:[160,96]}
+        ];
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'gear-wrapper';
+        wrapper.style.pointerEvents = 'none';
+        document.body.appendChild(wrapper);
+
+        const createdPairs = [];
+
+        pairs.forEach((p,i)=>{
+            const cont = document.createElement('div');
+            cont.style.position = 'fixed';
+            cont.style.zIndex = 60;
+            cont.style.pointerEvents = 'none';
+
+            // anchor positions: override style semantics for fixed anchors
+            if(p.anchor === 'top-right'){
+                cont.style.right = '48px';
+                cont.style.top = '22px';
+            } else if(p.anchor === 'left-middle'){
+                cont.style.left = '48px';
+                cont.style.bottom = '120px';
+            } else {
+                Object.keys(p.style).forEach(k=> cont.style[k] = p.style[k]);
+            }
+
+            // create gears
+            const g1 = new Image(); const g2 = new Image();
+            g1.className = 'gear-item'; g2.className = 'gear-item';
+            g1.style.position = g2.style.position = 'absolute';
+            g1.style.transformOrigin = g2.style.transformOrigin = 'center center';
+
+            // assign sizes (bigger primary gear, smaller meshed gear)
+            const sizeA = p.sizes[0];
+            const sizeB = p.sizes[1];
+            g1.style.width = sizeA + 'px';
+            g1.style.height = 'auto';
+            g2.style.width = sizeB + 'px';
+            g2.style.height = 'auto';
+
+            // determine container size to comfortably host both gears
+            const containerW = Math.round(sizeA + sizeB * 0.8);
+            const containerH = Math.round(Math.max(sizeA, sizeB) + 20);
+            cont.style.width = containerW + 'px';
+            cont.style.height = containerH + 'px';
+
+            // place g1 at left; g2 offset to the right so teeth visually mesh
+            g1.style.left = '0px';
+            g1.style.top = Math.round((containerH - sizeA)/2) + 'px';
+            // offset g2 by approx half the sum of radii minus a small overlap factor
+            const overlapFactor = 0.36; // tweak to bring teeth toward mesh
+            const g2Left = Math.round(sizeA - sizeB * overlapFactor);
+            g2.style.left = g2Left + 'px';
+            g2.style.top = Math.round((containerH - sizeB)/2) + 'px';
+
+            g1.dataset.angle = '0'; g2.dataset.angle = '0';
+            g1.src = p.files[0]; g2.src = p.files[1];
+
+            cont.appendChild(g1); cont.appendChild(g2);
+            wrapper.appendChild(cont);
+
+            createdPairs.push({g1,g2,size1:sizeA,size2:sizeB,container:cont});
+        });
+
+        // tick behavior: for each second, rotate for 100ms then stay
+        const TICK_MS = 100; // active rotate duration
+        const PERIOD_MS = 1000; // full cycle
+        const TICK_ANGLE = 18; // degrees for primary gear per tick
+
+        function doTick(){
+            createdPairs.forEach(pair=>{
+                const a = pair.g1, b = pair.g2;
+                // compute angle deltas: inverse proportional to sizes (approx teeth count)
+                const deltaA = TICK_ANGLE;
+                const ratio = (pair.size1 / pair.size2) || 1;
+                const deltaB = - (deltaA * (pair.size1 / pair.size2));
+
+                // update stored angles
+                a.dataset.angle = (parseFloat(a.dataset.angle) + deltaA) % 360;
+                b.dataset.angle = (parseFloat(b.dataset.angle) + deltaB) % 360;
+
+                // apply animated rotation for tick interval
+                a.style.transition = `transform ${TICK_MS}ms linear`;
+                b.style.transition = `transform ${TICK_MS}ms linear`;
+                a.style.transform = `rotate(${a.dataset.angle}deg)`;
+                b.style.transform = `rotate(${b.dataset.angle}deg)`;
+
+                // after tick, clear transitions so they remain still visually
+                setTimeout(()=>{
+                    a.style.transition = 'none';
+                    b.style.transition = 'none';
+                }, TICK_MS + 10);
+            });
+        }
+
+        // run first tick after small delay so images have time to load
+        setTimeout(()=>{ doTick(); setInterval(doTick, PERIOD_MS); }, 360);
+    })();
+
+    // Discord CTA: replace href with actual invite if you provide it later
+    const discordCTA = document.getElementById('discordCTA');
+    if(discordCTA){
+        discordCTA.href = 'https://discord.gg/WMFDqpyvhc';
+        discordCTA.classList.add('pulse');
+    }
+
+    // Audio player (start muted/paused) and new volume button below the media
+    const bgAudio = document.getElementById('bgAudio');
+    if(bgAudio){
+        bgAudio.muted = true;
+        // remain paused until user toggles
+    }
+
+    // Forward mouse wheel events over the hero media to the page so scrolling works normally
+    const heroMedia = document.getElementById('heroMedia');
+    if(heroMedia){
+        heroMedia.addEventListener('wheel', e=>{
+            e.preventDefault();
+            window.scrollBy({top: e.deltaY, left: 0, behavior: 'auto'});
+        }, {passive:false});
+    }
+    // also forward wheel events from the media frame (covers cases where video sits differently when served)
+    const mediaFrame = document.getElementById('mediaFrame');
+    if(mediaFrame){
+        mediaFrame.addEventListener('wheel', e=>{
+            e.preventDefault();
+            window.scrollBy({top: e.deltaY, left: 0, behavior: 'auto'});
+        }, {passive:false});
+    }
+
+    // Volume button in the header — simplified reliable toggle
+    (function(){
+        const volBtn = document.getElementById('volToggleBtn');
+        const volIcon = document.getElementById('volIcon');
+        const a = document.getElementById('bgAudio');
+        const ICON_ON = 'Neon blue volume on .png';
+        const ICON_ON_HOVER = 'Neon blue volume on hover.png';
+        const ICON_OFF = 'Neon blue volume off.png';
+        const ICON_OFF_HOVER = 'Neon blue volume off hover.png';
+        if(!volBtn || !volIcon || !a) return;
+
+        volIcon.dataset.on = ICON_ON;
+        volIcon.dataset.onHover = ICON_ON_HOVER;
+        volIcon.dataset.off = ICON_OFF;
+        volIcon.dataset.offHover = ICON_OFF_HOVER;
+
+        function setOn(){ volIcon.src = volIcon.dataset.on || ICON_ON; volBtn.classList.add('vol-on'); volBtn.classList.remove('vol-off'); }
+        function setOff(){ volIcon.src = volIcon.dataset.off || ICON_OFF; volBtn.classList.add('vol-off'); volBtn.classList.remove('vol-on'); }
+
+        // flashing helpers: toggle icon between on/off until user clicks
+        let __flashTimer = null;
+        function startFlashing(){
+            if(__flashTimer) return;
+            let showOn = false;
+            __flashTimer = setInterval(()=>{
+                showOn = !showOn;
+                volIcon.src = showOn ? (volIcon.dataset.on || ICON_ON) : (volIcon.dataset.off || ICON_OFF);
+            }, 600);
+            volBtn.classList.add('vol-need-click');
+        }
+        function stopFlashing(){ if(__flashTimer){ clearInterval(__flashTimer); __flashTimer = null; } volBtn.classList.remove('vol-need-click'); refresh(); }
+
+        function refresh(){ if(!a.paused && !a.muted){ setOn(); } else { setOff(); } }
+
+        volBtn.addEventListener('click', async (e)=>{
+            e.preventDefault();
             try{
-                if(window.matchMedia('(max-width:600px)').matches) v.pause();
-            }catch(e){}
+                if(a.paused){ a.muted = false; a.volume = 1; await a.play(); }
+                else { a.pause(); a.muted = true; }
+            }catch(err){ console.warn('volBtn play failed', err); }
+            refresh();
+        });
+
+        volBtn.addEventListener('mouseenter', ()=>{ volIcon.src = (!a.paused && !a.muted) ? volIcon.dataset.onHover || ICON_ON_HOVER : volIcon.dataset.offHover || ICON_OFF_HOVER; });
+        volBtn.addEventListener('mouseleave', refresh);
+
+        a.addEventListener('play', refresh);
+        a.addEventListener('pause', refresh);
+        a.addEventListener('volumechange', refresh);
+
+        // Initialize icon state
+        setTimeout(refresh, 80);
+
+        // Attempt audible autoplay: try unmuted first, fall back to muted autoplay.
+        (async function tryAutoplay(){
+            try{
+                a.muted = false; a.volume = 1;
+                await a.play();
+                console.log('autoplay: unmuted play succeeded');
+                // remove attention highlight if present
+                const volBtnSuccess = document.getElementById('volToggleBtn');
+                if(volBtnSuccess && volBtnSuccess.classList.contains('vol-need-click')) volBtnSuccess.classList.remove('vol-need-click');
+            }catch(err){
+                console.warn('autoplay unmuted failed, trying muted autoplay', err);
+                try{
+                    a.muted = true;
+                    await a.play();
+                    console.log('autoplay: muted play succeeded');
+                    const volBtnMuted = document.getElementById('volToggleBtn');
+                    if(volBtnMuted && volBtnMuted.classList.contains('vol-need-click')) volBtnMuted.classList.remove('vol-need-click');
+                }catch(err2){
+                    console.warn('autoplay muted also blocked', err2);
+                    // show a small hint to the user to click the speaker
+                    try{
+                        // visually highlight the header speaker so the user clicks it
+                        const volBtn = document.getElementById('volToggleBtn');
+                        if(volBtn){
+                            volBtn.setAttribute('title','Click to enable sound');
+                            startFlashing();
+                            const removeHighlight = ()=>{ stopFlashing(); volBtn.removeEventListener('click', removeHighlight); };
+                            volBtn.addEventListener('click', removeHighlight);
+                            // remove after 12s if still present
+                            setTimeout(()=>{ stopFlashing(); }, 12000);
+                        }
+                    }catch(_){}
+                }
+            }
+            // refresh icon/visual state based on actual audio
+            setTimeout(refresh, 60);
         })();
+    })();
+
+    // App CTA hover preview (uses landing video as a short preview)
+    (function(){
+        const appBtn = document.querySelector('.pill.cta-app');
+        let previewEl = null;
+        if(!appBtn) return;
+
+        let hideTimer = null;
+        function showPreview(e){
+            // create if needed
+            if(!previewEl){
+                previewEl = document.createElement('div');
+                previewEl.className = 'app-preview';
+                const v = document.createElement('video');
+                v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+                const src = document.createElement('source');
+                src.src = 'Landing Page.mp4'; src.type = 'video/mp4';
+                v.appendChild(src);
+                previewEl.appendChild(v);
+                document.body.appendChild(previewEl);
+                // keep preview visible when mouse enters it
+                previewEl.addEventListener('mouseenter', ()=>{ if(hideTimer){ clearTimeout(hideTimer); hideTimer = null } });
+                previewEl.addEventListener('mouseleave', ()=>{ hidePreview(); });
+            }
+            if(hideTimer){ clearTimeout(hideTimer); hideTimer = null }
+            positionPreviewAt(e);
+            requestAnimationFrame(()=> previewEl.classList.add('visible'));
+        }
+
+        function hidePreview(){
+            if(hideTimer) clearTimeout(hideTimer);
+            hideTimer = setTimeout(()=>{
+                if(!previewEl) return;
+                previewEl.classList.remove('visible');
+                setTimeout(()=>{ if(previewEl){ previewEl.remove(); previewEl = null } }, 180);
+                appBtn.removeEventListener('mousemove', positionPreviewAt);
+                hideTimer = null;
+            }, 160);
+        }
+
+        function positionPreviewAt(e){
+            if(!previewEl) return;
+            // use mouse position if provided, else center under button
+            const mx = e && (e.pageX || e.clientX + window.scrollX);
+            const my = e && (e.pageY || e.clientY + window.scrollY);
+            const left = (typeof mx === 'number') ? Math.min(window.innerWidth - 360, Math.max(12, mx - 170)) : (Math.min(window.innerWidth - 360, Math.max(12, appBtn.getBoundingClientRect().left + appBtn.offsetWidth/2 - 170)));
+            const top = (typeof my === 'number') ? Math.min(window.innerHeight - 220 + window.scrollY, Math.max(12 + window.scrollY, my + 18)) : (appBtn.getBoundingClientRect().bottom + 12 + window.scrollY);
+            previewEl.style.left = left + 'px';
+            previewEl.style.top = top + 'px';
+        }
+
+        appBtn.addEventListener('mouseenter', (ev)=>{ showPreview(ev); appBtn.addEventListener('mousemove', positionPreviewAt); });
+        appBtn.addEventListener('mouseleave', hidePreview);
+        window.addEventListener('resize', ()=> positionPreviewAt());
+        window.addEventListener('scroll', ()=> positionPreviewAt());
+    })();
     </script>
 </body>
 </html>
- <!DOCTYPE html>
- <html>
- <head>
-     <meta charset="UTF-8">
-     <title>JonnyAFK</title>
- 
-     <style>
-         body {
-             margin: 0;
-             background: #0a0a0f;
-             font-family: Arial, sans-serif;
-             color: white;
-             text-align: center;
-         }
- 
-         header {
-             padding: 40px 20px;
-             background: linear-gradient(90deg, #00eaff, #ff00ff);
-         }
- 
-         h1 {
-             font-size: 48px;
-             margin: 0;
-         }
- 
-         p {
-             font-size: 20px;
-             margin-top: 10px;
-         }
- 
-         .content {
-             padding: 40px;
-         }
- 
-         img {
-             margin-top: 20px;
-             width: 300px;
-             border-radius: 10px;
-         }
-         .topbar {
-     width: 100%;
-     background: #111;
-     padding: 15px 0;
-     display: flex;
-     justify-content: center;
-     gap: 25px;
-     position: sticky;
-     top: 0;
-     z-index: 1000;
- }
- 
- .topbar a {
-     color: #00eaff;
-     font-size: 18px;
-     text-decoration: none;
-     font-weight: bold;
-     transition: 0.2s;
- }
- 
- .topbar a:hover {
-     color: #ff00ff;
- }
-     </style>
- </head>
- 
- <body>
- <nav class="topbar">
-     <a href="https://youtube.com/@JonnyAFK" target="_blank">YouTube</a>
-     <a href="https://music.youtube.com/@jonnyAFK" target="_blank">YT Music</a>
-     <a href="https://open.spotify.com/user/31vp67egoy5l226ynh7djaqbm3dm?si=9d15160c416c415a" target="_blank">Spotify</a>
-     <a href="https://www.instagram.com/jonny_afk" target="_blank">Instagram</a>
-     <a href="https://www.tiktok.com/@jonny_afk0" target="_blank">TikTok</a>
-     <a href="https://pandora.app.link/ZwI9OQThc1b" target="_blank">Pandora</a>
-     <a href="https://discord.gg/QWjsCCWPHa" target="_blank">Discord</a>
-     <a href="https://patreon.com/JonnyAFK" target="_blank">Patreon</a>
-     <a href="mailto:jonnyafk@hotmail.com">Contact</a>
- </nav>
- 
- 
-     <header>
-         <h1>Welcome to JonnyAFK</h1>
-         <p>Music ~ Art ~ Shenanigans</p>
-     </header>
- 
-     <div class="content">
-         <h2>About Me</h2>
-         <p>This is where your brand begins. We’ll replace this with real sections soon.</p>
- 
-         <video src="Landing Page.mp4" alt="Landing Page">
-     </div>
- 
- </body>
- </html>
