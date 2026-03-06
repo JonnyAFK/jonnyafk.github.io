@@ -132,7 +132,7 @@
                 <!-- Discord CTA (replace href with your invite if needed) -->
                 <a id="discordCTA" class="pill discord-cta" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener" title="Join my Discord">Join Discord</a>
                 <button id="volToggleBtn" class="pill" aria-label="Toggle volume" style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px">
-                    <img id="volIcon" src="Neon blue volume on .png" alt="volume" style="width:28px;height:28px"> 
+                    <img id="volIcon" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="volume" style="width:28px;height:28px"> 
                 </button>
             </nav>
         </div>
@@ -312,7 +312,11 @@
             g2.style.top = Math.round((containerH - sizeB)/2) + 'px';
 
             g1.dataset.angle = '0'; g2.dataset.angle = '0';
-            g1.src = p.files[0]; g2.src = p.files[1];
+            // encode filenames to avoid broken paths on hosts that require URL encoding
+            g1.src = encodeURI((p.files[0]||'').trim());
+            g2.src = encodeURI((p.files[1]||'').trim());
+            g1.onerror = ()=>{ console.warn('gear image failed to load:', g1.src); g1.style.display='none'; };
+            g2.onerror = ()=>{ console.warn('gear image failed to load:', g2.src); g2.style.display='none'; };
 
             cont.appendChild(g1); cont.appendChild(g2);
             wrapper.appendChild(cont);
@@ -397,10 +401,21 @@
         const ICON_OFF_HOVER = 'Neon blue volume off hover.png';
         if(!volBtn || !volIcon || !a) return;
 
-        volIcon.dataset.on = ICON_ON;
-        volIcon.dataset.onHover = ICON_ON_HOVER;
-        volIcon.dataset.off = ICON_OFF;
-        volIcon.dataset.offHover = ICON_OFF_HOVER;
+        // store URL-encoded filenames to avoid issues with spaces or hosting
+        volIcon.dataset.on = encodeURI(ICON_ON.trim());
+        volIcon.dataset.onHover = encodeURI(ICON_ON_HOVER.trim());
+        volIcon.dataset.off = encodeURI(ICON_OFF.trim());
+        volIcon.dataset.offHover = encodeURI(ICON_OFF_HOVER.trim());
+        // hide broken icon and show a simple emoji fallback if the image fails to load
+        volIcon.onerror = function(){
+            console.warn('volume icon failed to load', volIcon.src);
+            volIcon.style.display = 'none';
+            const parent = volIcon.parentNode;
+            if(parent && !parent.querySelector('.vol-emoji')){
+                const fb = document.createElement('span'); fb.className = 'vol-emoji'; fb.textContent = '🔊'; fb.style.fontSize = '18px'; fb.style.color = 'var(--neon)'; fb.style.display = 'inline-block'; fb.style.width = '28px'; fb.style.height = '28px'; fb.style.lineHeight = '28px';
+                parent.appendChild(fb);
+            }
+        };
 
         function setOn(){ volIcon.src = volIcon.dataset.on || ICON_ON; volBtn.classList.add('vol-on'); volBtn.classList.remove('vol-off'); }
         function setOff(){ volIcon.src = volIcon.dataset.off || ICON_OFF; volBtn.classList.add('vol-off'); volBtn.classList.remove('vol-on'); }
