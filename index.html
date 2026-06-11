@@ -24,13 +24,13 @@
         .site-header .header-inner{max-width:1360px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:8px 28px}
         .brand{height:220px;display:block;margin-top:-60px}
         .brand-wrap{display:flex;align-items:center;gap:12px}
-        .handwritten{font-family: 'Shadows Into Light', cursive;color:var(--hand-color);opacity:0.95;font-size:22px;display:flex;flex-direction:column;align-items:center;text-align:center;line-height:[...]
+        .handwritten{font-family: 'Shadows Into Light', cursive;color:var(--hand-color);opacity:0.95;font-size:22px;display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.2}
         .handwritten .handline{font-size:14px;opacity:0.85;margin-top:4px}
         .topnav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-        .pill{display:inline-block;padding:12px 16px;border-radius:8px;background:rgba(0,0,0,0.45);border:1px solid rgba(0,170,255,0.05);color:var(--neon);text-decoration:none;font-weight:700;font-siz[...]
+        .pill{display:inline-block;padding:12px 16px;border-radius:8px;background:rgba(0,0,0,0.45);border:1px solid rgba(0,170,255,0.05);color:var(--neon);text-decoration:none;font-weight:700;font-size:14px}
         .pill:hover{box-shadow:0 10px 30px rgba(0,170,255,0.06)}
-        .pill.cta-app{background:linear-gradient(90deg,var(--accent-blue),var(--neon));color:#001;box-shadow:0 8px 30px rgba(14,165,255,0.12);border:1px solid rgba(255,255,255,0.06);padding:14px 20px;[...]
-        .discord-cta{background:linear-gradient(90deg,#5865F2,#7C88FF);color:#fff;font-weight:800;padding:12px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 14px 40px rg[...]
+        .pill.cta-app{background:linear-gradient(90deg,var(--accent-blue),var(--neon));color:#001;box-shadow:0 8px 30px rgba(14,165,255,0.12);border:1px solid rgba(255,255,255,0.06);padding:14px 20px;font-size:14px}
+        .discord-cta{background:linear-gradient(90deg,#5865F2,#7C88FF);color:#fff;font-weight:800;padding:12px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 14px 40px rgba(88,101,242,0.12);font-size:14px}
         .discord-cta:hover{transform:translateY(-6px) scale(1.02)}
         .discord-cta.pulse{animation:discordPulse 2.6s infinite}
         @keyframes discordPulse{0%{box-shadow:0 10px 30px rgba(88,101,242,0.08)}50%{box-shadow:0 18px 60px rgba(88,101,242,0.14)}100%{box-shadow:0 10px 30px rgba(88,101,242,0.08)}}
@@ -40,7 +40,7 @@
 
         /* Media frame (poster or mp4) — preserves aspect ratio and avoids stretching */
         /* media frame reduced to ~80% of previous width so it fits comfortably on screen */
-        .media-frame{position:relative;z-index:40;width:min(1088px,73.6vw);max-width:1088px;aspect-ratio:16/9;background:linear-gradient(180deg, rgba(0,0,0,0.72), rgba(8,8,10,0.6));padding:24px;border[...]
+        .media-frame{position:relative;z-index:40;width:min(1088px,73.6vw);max-width:1088px;aspect-ratio:16/9;background:linear-gradient(180deg, rgba(0,0,0,0.72), rgba(8,8,10,0.6));padding:24px;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
         .media{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:6px;background:#000;display:block}
         .logo-overlay{position:absolute;left:28px;top:28px;width:320px;height:auto;z-index:6;pointer-events:none}
 
@@ -64,15 +64,13 @@
         .orb.b{width:160px;height:160px;left:-40px;bottom:40px;background:linear-gradient(180deg,var(--neon-2),transparent)}
 
         /* Footer */
-        footer{position:fixed;left:0;right:0;bottom:12px;text-align:center;color:var(--hand-color);opacity:0.95;font-size:18px;z-index:400;font-family:'Shadows Into Light', cursive;padding:6px 0;point[...]
+        footer{position:fixed;left:0;right:0;bottom:12px;text-align:center;color:var(--hand-color);opacity:0.95;font-size:18px;z-index:400;font-family:'Shadows Into Light', cursive;padding:6px 0;pointer-events:none}
         footer .footer-links{pointer-events:auto}
         .footer-links{margin:0 auto;max-width:1260px;padding:6px 0;letter-spacing:2px}
-        .footer-badge{display:inline-block;margin-top:4px;pointer-events:auto}
-        .footer-badge img{max-width:130px;height:auto;display:block}
         /* Social bar (bottom center) */
         /* raise social bar a bit so it's visible on tall headers/fullscreen */
         .social-bar{position:fixed;left:0;right:0;bottom:64px;display:flex;justify-content:center;gap:12px;z-index:110}
-        .social-btn{display:inline-block;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--neon);text-decoration:none;border:1px solid rgba(255,255,255,0.03);font-wei[...]
+        .social-btn{display:inline-block;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--neon);text-decoration:none;border:1px solid rgba(255,255,255,0.03);font-weight:600;font-size:13px}
 
         /* Responsive */
         @media(max-width:900px){
@@ -85,7 +83,7 @@
         .ripple{position:absolute;border-radius:50%;transform:scale(0);animation:ripple .7s ease-out;background:rgba(0,255,230,0.2);pointer-events:none}
         @keyframes ripple{to{transform:scale(4);opacity:0}}
         /* small preview that appears when hovering the App CTA */
-        .app-preview{position:fixed;width:340px;height:192px;border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.6);z-index:999;background:#000;border:1px solid rgba(255,255,255,0.0[...]
+        .app-preview{position:fixed;width:340px;height:192px;border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.6);z-index:999;background:#000;border:1px solid rgba(255,255,255,0.04);display:none;opacity:0;transition:opacity 180ms ease}
         .app-preview.visible{display:block;opacity:1}
         .app-preview video{width:100%;height:100%;object-fit:cover;display:block}
         /* media controls under the frame */
@@ -109,7 +107,7 @@
         }
         .vol-need-click{animation:volPulse 1s ease-in-out infinite;border-radius:8px;box-shadow:0 6px 30px rgba(14,165,255,0.14);transform-origin:center center}
         /* grow and pulse the speaker image itself for clearer affordance */
-        .vol-need-click img{animation:volPulse 1s ease-in-out infinite, volColorPulse 1.2s ease-in-out infinite;transform-origin:center center;width:36px;height:36px;transition:width .12s ease,height [...]
+        .vol-need-click img{animation:volPulse 1s ease-in-out infinite, volColorPulse 1.2s ease-in-out infinite;transform-origin:center center;width:36px;height:36px;transition:width .12s ease,height .12s ease}
     </style>
 </head>
 <body>
@@ -193,9 +191,18 @@
     <!-- footer moved outside main to sit fixed at bottom center -->
     <footer>
         <div class="footer-links">© JonnyAFK — Built with love</div>
-        <a href="https://soundbetter.com/profiles/728439-jon-stevers" class="footer-badge" target="_blank" rel="noopener noreferrer" title="Jon Stevers profile on SoundBetter">
-            <img alt="Jon Stevers, Full instrumental production on SoundBetter" src="https://d2p6ecj15pyavq.cloudfront.net/assets/SoundBetterBadge-c84cb3e75c4267f5bee41f7f617a81d9.svg" />
-        </a>
+         <div style="text-align:center; margin-top:20px;">
+        <a href="https://soundbetter.com/profiles/728439-jon-stevers" 
+           rel="noopener noreferrer" 
+           target="_blank" 
+           title="Jon Stevers profile on SoundBetter">
+             <img 
+                 alt="Jon Stevers, Full instrumental production on SoundBetter" 
+                 src="https://d2p6ecj15pyavq.cloudfront.net/assets/SoundBetterBadge-c84cb3e75c4267f5bee41f7f617a81d9.svg" 
+                 style="max-width: 130px;" 
+             />
+         </a>
+     </div>
     </footer>
 
         <script>
@@ -416,7 +423,7 @@
             volIcon.style.display = 'none';
             const parent = volIcon.parentNode;
             if(parent && !parent.querySelector('.vol-emoji')){
-                const fb = document.createElement('span'); fb.className = 'vol-emoji'; fb.textContent = '🔊'; fb.style.fontSize = '18px'; fb.style.color = 'var(--neon)'; fb.style.display = 'inline-b[...]
+                const fb = document.createElement('span'); fb.className = 'vol-emoji'; fb.textContent = '🔊'; fb.style.fontSize = '18px'; fb.style.color = 'var(--neon)'; fb.style.display = 'inline-block'; fb.style.marginLeft = '2px';
                 parent.appendChild(fb);
             }
         };
@@ -541,8 +548,8 @@
             // use mouse position if provided, else center under button
             const mx = e && (e.pageX || e.clientX + window.scrollX);
             const my = e && (e.pageY || e.clientY + window.scrollY);
-            const left = (typeof mx === 'number') ? Math.min(window.innerWidth - 360, Math.max(12, mx - 170)) : (Math.min(window.innerWidth - 360, Math.max(12, appBtn.getBoundingClientRect().left + ap[...]
-            const top = (typeof my === 'number') ? Math.min(window.innerHeight - 220 + window.scrollY, Math.max(12 + window.scrollY, my + 18)) : (appBtn.getBoundingClientRect().bottom + 12 + window.sc[...]
+            const left = (typeof mx === 'number') ? Math.min(window.innerWidth - 360, Math.max(12, mx - 170)) : (Math.min(window.innerWidth - 360, Math.max(12, appBtn.getBoundingClientRect().left + appBtn.offsetWidth/2 - 170)));
+            const top = (typeof my === 'number') ? Math.min(window.innerHeight - 220 + window.scrollY, Math.max(12 + window.scrollY, my + 18)) : (appBtn.getBoundingClientRect().bottom + 12 + window.scrollY);
             previewEl.style.left = left + 'px';
             previewEl.style.top = top + 'px';
         }
