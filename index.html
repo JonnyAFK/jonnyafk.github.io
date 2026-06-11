@@ -35,7 +35,7 @@
             justify-content:center;
             overflow:hidden;
             background:#000;
-            padding-top:80px; /* reduced so no huge gap */
+            padding-top: 20px !important; /* reduced so no huge gap */
         }
 
         /* Top header */
@@ -152,7 +152,8 @@
             inset:0;
             background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
             backdrop-filter:blur(2px);
-            z-index:1; /* keep low so footer can be above */
+            z-index: 0 !important;
+
         }
 
         .center{
@@ -274,7 +275,7 @@
 
         footer{
             position:relative;
-            z-index:9999; /* ensure above overlay so badge is clickable */
+            z-index: 99999 !important;
             padding:16px 12px 24px;
             text-align:center;
             font-size:13px;
@@ -303,6 +304,12 @@
         .gear-wrapper .gear-item{
             filter:drop-shadow(0 8px 18px rgba(0,0,0,0.7));
         }
+        /* Keep gears behind all UI */
+        .gear-wrapper,
+        .gear-wrapper .gear-item {
+            z-index: 0 !important;
+        }
+
     </style>
 </head>
 <body>
