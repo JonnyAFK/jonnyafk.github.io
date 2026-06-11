@@ -112,12 +112,12 @@
             <aside class="card">
                 <div class="media-frame" id="mediaFrame">
                     <video class="media" id="heroMedia" playsinline muted poster="still%20landing%20page.png">
-                        <source src="Landing Page.mp4" type="video/mp4">
-                        <source src="Landing%20Page%20(1).webm" type="video/webm">
+                        <source src="Landing_Page.mp4" type="video/mp4">
+                        <source src="Landing%20Page%20(1).mp4" type="video/webm">
                         <img src="still%20landing%20page.png" alt="JonnyAFK poster">
                     </video>
                     <video id="backgroundVideo" class="bg-video" autoplay muted loop playsinline>
-                        <source src="Landing Page.mp4" type="video/mp4">
+                        <source src="Landing_Page.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div style="margin-top:12px;color:#bff;opacity:0.9;text-align:center;font-size:15px">Your central hub. Click any button to open that section.</div>
@@ -191,8 +191,8 @@
 
         (function(){
             const pairs = [
-                {files:['gear 4.png','gear 2.png'], anchor:'top-right', style:{right:'6%', top:'6%'}, sizes:[160,96]},
-                {files:['gear 1.png','gear 3.png'], anchor:'left-middle', style:{left:'6%', top:'50%'}, sizes:[160,96]}
+                {files:['gear4.png','gear2.png'], anchor:'top-right', style:{right:'6%', top:'6%'}, sizes:[160,96]},
+                {files:['gear1.png','gear3.png'], anchor:'left-middle', style:{left:'6%', top:'50%'}, sizes:[160,96]}
             ];
             const wrapper = document.createElement('div');
             wrapper.className = 'gear-wrapper';
@@ -378,7 +378,7 @@
                     const v = document.createElement('video');
                     v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
                     const src = document.createElement('source');
-                    src.src = 'Landing Page.mp4'; src.type = 'video/mp4';
+                    src.src = 'Landing_Page.mp4'; src.type = 'video/mp4';
                     v.appendChild(src);
                     previewEl.appendChild(v);
                     document.body.appendChild(previewEl);
