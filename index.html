@@ -16,57 +16,293 @@
             --accent-blue: #0ea5ff;
             --hand-color: #f7fbff;
         }
-        html,body{height:100%;margin:0;font-family:Varela Round,system-ui,Arial;background:#000;font-size:18px}
-        .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000;padding-top:140px}
-        .site-header{position:fixed;left:0;right:0;top:0;height:140px;background:linear-gradient(180deg,var(--header-bg),#000);border-bottom:1px solid rgba(255,255,255,0.03);z-index:100}
-        .site-header .header-inner{max-width:1360px;margin:0 auto;height:100%;display:flex;align-items:center;justify-content:space-between;padding:8px 28px}
-        .brand{height:220px;display:block;margin-top:-60px}
-        .brand-wrap{display:flex;align-items:center;gap:12px}
-        .handwritten{font-family:'Shadows Into Light',cursive;color:var(--hand-color);opacity:0.95;font-size:22px;display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.2}
-        .handwritten .handline{font-size:14px;opacity:0.85;margin-top:4px}
-        .topnav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-        .pill{display:inline-block;padding:12px 16px;border-radius:8px;background:rgba(0,0,0,0.45);border:1px solid rgba(0,170,255,0.05);color:var(--neon);text-decoration:none;font-weight:700;font-size:14px}
-        .pill:hover{box-shadow:0 10px 30px rgba(0,170,255,0.06)}
-        .pill.cta-app{background:linear-gradient(90deg,var(--accent-blue),var(--neon));color:#001;box-shadow:0 8px 30px rgba(14,165,255,0.12);border:1px solid rgba(255,255,255,0.06);padding:14px 20px;font-size:14px}
-        .discord-cta{background:linear-gradient(90deg,#5865F2,#7C88FF);color:#fff;font-weight:800;padding:12px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);box-shadow:0 14px 40px rgba(88,101,242,0.12);font-size:14px}
-        .discord-cta:hover{transform:translateY(-6px) scale(1.02)}
-        .discord-cta.pulse{animation:discordPulse 2.6s infinite}
-        @keyframes discordPulse{0%{box-shadow:0 10px 30px rgba(88,101,242,0.08)}50%{box-shadow:0 18px 60px rgba(88,101,242,0.14)}100%{box-shadow:0 10px 30px rgba(88,101,242,0.08)}}
-        .bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:brightness(.55);pointer-events:none}
-        .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.6));backdrop-filter:blur(2px);z-index:2}
-        .media-frame{position:relative;z-index:40;width:min(1088px,73.6vw);max-width:1088px;aspect-ratio:16/9;background:linear-gradient(180deg,rgba(0,0,0,0.72),rgba(8,8,10,0.6));padding:24px;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
-        .media{width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:6px;background:#000;display:block}
-        .logo-overlay{position:absolute;left:28px;top:28px;width:320px;height:auto;z-index:6;pointer-events:none}
-        .gear-wrapper{position:absolute;inset:0;pointer-events:none;z-index:120}
-        .gear-item{position:absolute;width:160px;height:160px;transform-origin:center center;opacity:0.96;display:block;mix-blend-mode:screen}
-        .gear-item.small{width:96px;height:96px}
-        .gear-item.xsmall{width:64px;height:64px}
-        .gear-item.paused{animation-play-state:paused}
-        .center{position:relative;z-index:3;max-width:1100px;width:100%;padding:40px 30px 80px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:36px}
-        .left{display:none}
-        .orb{position:absolute;border-radius:50%;filter:blur(18px);opacity:.28;mix-blend-mode:screen}
-        .orb.a{width:260px;height:260px;right:20px;top:-40px;background:linear-gradient(180deg,var(--neon),transparent)}
-        .orb.b{width:160px;height:160px;left:-40px;bottom:40px;background:linear-gradient(180deg,var(--neon-2),transparent)}
-        footer{position:fixed;left:0;right:0;bottom:12px;text-align:center;color:var(--hand-color);opacity:0.95;font-size:18px;z-index:400;font-family:'Shadows Into Light',cursive;padding:6px 0;pointer-events:none}
-        footer .footer-links{pointer-events:auto}
-        .footer-links{margin:0 auto;max-width:1260px;padding:6px 0;letter-spacing:2px}
-        .social-bar{position:fixed;left:0;right:0;bottom:64px;display:flex;justify-content:center;gap:12px;z-index:110}
-        .social-btn{display:inline-block;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--neon);text-decoration:none;border:1px solid rgba(255,255,255,0.03);font-weight:600;font-size:13px}
-        @media(max-width:900px){.center{grid-template-columns:1fr;gap:20px}.logo-wrap{height:220px}.site-title{font-size:34px}.discord-cta{display:none}}
-        .ripple{position:absolute;border-radius:50%;transform:scale(0);animation:ripple .7s ease-out;background:rgba(0,255,230,0.2);pointer-events:none}
-        @keyframes ripple{to{transform:scale(4);opacity:0}}
-        .app-preview{position:fixed;width:340px;height:192px;border-radius:10px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.6);z-index:999;background:#000;border:1px solid rgba(255,255,255,0.04);display:none;opacity:0;transition:opacity 180ms ease}
-        .app-preview.visible{display:block;opacity:1}
-        .app-preview video{width:100%;height:100%;object-fit:cover;display:block}
-        .media-controls{display:flex;align-items:center;gap:12px;justify-content:center;margin-top:14px}
-        .song-preview{width:220px;height:124px;object-fit:cover;border-radius:6px;border:1px solid rgba(255,255,255,0.04)}
-        .volume-btn{background:transparent;border:0;padding:6px;border-radius:8px;cursor:pointer}
-        .volume-btn img{width:48px;height:48px;display:block}
-        @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-        @keyframes volPulse{0%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(0,170,255,0))}50%{transform:scale(1.18);filter:drop-shadow(0 10px 30px rgba(0,170,255,0.22))}100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(0,170,255,0))}}
-        @keyframes volColorPulse{0%{filter:drop-shadow(0 0 0 rgba(0,170,255,0)) hue-rotate(0deg) saturate(1) brightness(1)}25%{filter:drop-shadow(0 6px 18px rgba(0,170,255,0.18)) hue-rotate(20deg) saturate(1.2) brightness(1.06)}50%{filter:drop-shadow(0 14px 36px rgba(255,40,180,0.28)) hue-rotate(180deg) saturate(1.6) brightness(1.12)}75%{filter:drop-shadow(0 8px 22px rgba(0,170,255,0.18)) hue-rotate(340deg) saturate(1.2) brightness(1.02)}100%{filter:drop-shadow(0 0 0 rgba(0,170,255,0)) hue-rotate(0deg) saturate(1) brightness(1)}}
-        .vol-need-click{animation:volPulse 1s ease-in-out infinite;border-radius:8px;box-shadow:0 6px 30px rgba(14,165,255,0.14);transform-origin:center center}
-        .vol-need-click img{animation:volPulse 1s ease-in-out infinite,volColorPulse 1.2s ease-in-out infinite;transform-origin:center center;width:36px;height:36px;transition:width .12s ease,height .12s ease}
+
+        html,body{
+            height:100%;
+            margin:0;
+            font-family:Varela Round,system-ui,Arial;
+            background:#000;
+            font-size:18px;
+            color:#f5f7ff;
+        }
+
+        /* Layout */
+        .hero{
+            position:relative;
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+            background:#000;
+            padding-top:80px; /* reduced so no huge gap */
+        }
+
+        /* Top header */
+        .site-header{
+            position:fixed;
+            left:0;
+            right:0;
+            top:0;
+            height:140px;
+            background:linear-gradient(180deg,var(--header-bg),#000);
+            border-bottom:1px solid rgba(255,255,255,0.03);
+            z-index:100;
+        }
+        .site-header .header-inner{
+            max-width:1360px;
+            margin:0 auto;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:8px 28px;
+        }
+        .brand{
+            height:220px;
+            display:block;
+            margin-top:-60px;
+        }
+        .brand-wrap{
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        .handwritten{
+            font-family:'Shadows Into Light',cursive;
+            color:var(--hand-color);
+            opacity:0.95;
+            font-size:22px;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            text-align:center;
+            line-height:1.2;
+        }
+        .handwritten .handline{
+            font-size:14px;
+            opacity:0.85;
+            margin-top:4px;
+        }
+
+        .topnav{
+            display:flex;
+            gap:12px;
+            align-items:center;
+            flex-wrap:wrap;
+        }
+        .pill{
+            display:inline-block;
+            padding:12px 16px;
+            border-radius:8px;
+            background:rgba(0,0,0,0.45);
+            border:1px solid rgba(0,170,255,0.05);
+            color:var(--neon);
+            text-decoration:none;
+            font-weight:700;
+            font-size:14px;
+            cursor:pointer;
+        }
+        .pill:hover{
+            box-shadow:0 10px 30px rgba(0,170,255,0.06);
+        }
+        .pill.cta-app{
+            background:linear-gradient(90deg,var(--accent-blue),var(--neon));
+            color:#001;
+            box-shadow:0 8px 30px rgba(14,165,255,0.12);
+            border:1px solid rgba(255,255,255,0.06);
+            padding:14px 20px;
+            font-size:14px;
+        }
+        .discord-cta{
+            background:linear-gradient(90deg,#5865F2,#7C88FF);
+            color:#fff;
+            font-weight:800;
+            padding:12px 18px;
+            border-radius:10px;
+            border:1px solid rgba(255,255,255,0.06);
+            box-shadow:0 14px 40px rgba(88,101,242,0.12);
+            font-size:14px;
+        }
+        .discord-cta:hover{
+            transform:translateY(-6px) scale(1.02);
+        }
+        .discord-cta.pulse{
+            animation:discordPulse 2.6s infinite;
+        }
+        @keyframes discordPulse{
+            0%{box-shadow:0 10px 30px rgba(88,101,242,0.08)}
+            50%{box-shadow:0 18px 60px rgba(88,101,242,0.14)}
+            100%{box-shadow:0 10px 30px rgba(88,101,242,0.08)}
+        }
+
+        /* background video, overlay and media frame */
+        .bg-video{
+            position:absolute;
+            inset:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            z-index:1;
+            filter:brightness(.55);
+            pointer-events:none;
+        }
+        .overlay{
+            position:absolute;
+            inset:0;
+            background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
+            backdrop-filter:blur(2px);
+            z-index:1; /* keep low so footer can be above */
+        }
+
+        .center{
+            position:relative;
+            z-index:2;
+            max-width:1360px;
+            margin:0 auto;
+            display:flex;
+            gap:32px;
+            padding:40px 24px 80px;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .left{
+            max-width:480px;
+        }
+        .site-title{
+            font-family:'Orbitron',system-ui;
+            font-size:42px;
+            letter-spacing:0.08em;
+            color:var(--neon);
+            margin:0 0 12px;
+        }
+        .tag{
+            font-size:16px;
+            opacity:0.9;
+            margin-bottom:24px;
+        }
+
+        .buttons{
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
+        }
+        .btn{
+            position:relative;
+            padding:12px 20px;
+            border-radius:999px;
+            border:1px solid rgba(0,243,217,0.18);
+            background:radial-gradient(circle at top left,rgba(0,243,217,0.18),rgba(0,0,0,0.9));
+            color:#e9fcff;
+            cursor:pointer;
+            overflow:hidden;
+            font-size:15px;
+            letter-spacing:0.03em;
+        }
+        .btn .label{
+            position:relative;
+            z-index:2;
+        }
+        .btn .glow{
+            position:absolute;
+            inset:0;
+            background:radial-gradient(circle at 10% 0%,rgba(0,243,217,0.35),transparent 55%);
+            opacity:0;
+            transition:opacity .25s ease;
+            z-index:1;
+        }
+        .btn:hover .glow{
+            opacity:1;
+        }
+        .ripple{
+            position:absolute;
+            border-radius:50%;
+            background:rgba(0,243,217,0.35);
+            transform:scale(0);
+            animation:rippleAnim .7s ease-out;
+            pointer-events:none;
+        }
+        @keyframes rippleAnim{
+            to{
+                transform:scale(2.6);
+                opacity:0;
+            }
+        }
+
+        .card{
+            position:relative;
+            width:480px;
+            max-width:100%;
+        }
+        .media-frame{
+            position:relative;
+            border-radius:24px;
+            overflow:hidden;
+            border:1px solid rgba(255,255,255,0.08);
+            box-shadow:0 24px 80px rgba(0,0,0,0.8);
+            background:#05060b;
+        }
+        .media{
+            display:block;
+            width:100%;
+            height:auto;
+        }
+
+        .social-bar{
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            bottom:24px;
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+            justify-content:center;
+            z-index:3;
+        }
+        .social-btn{
+            padding:6px 10px;
+            border-radius:999px;
+            border:1px solid rgba(255,255,255,0.12);
+            background:rgba(0,0,0,0.6);
+            color:#e9f5ff;
+            font-size:12px;
+            text-decoration:none;
+        }
+        .social-btn:hover{
+            background:rgba(0,243,217,0.12);
+        }
+
+        footer{
+            position:relative;
+            z-index:9999; /* ensure above overlay so badge is clickable */
+            padding:16px 12px 24px;
+            text-align:center;
+            font-size:13px;
+            color:#bcd;
+            background:transparent;
+        }
+        .footer-links{
+            margin-bottom:8px;
+        }
+
+        /* small screens */
+        @media (max-width:900px){
+            .center{
+                flex-direction:column;
+                align-items:flex-start;
+            }
+            .card{
+                width:100%;
+            }
+            .site-header{
+                height:auto;
+            }
+        }
+
+        /* gears */
+        .gear-wrapper .gear-item{
+            filter:drop-shadow(0 8px 18px rgba(0,0,0,0.7));
+        }
     </style>
 </head>
 <body>
@@ -89,13 +325,15 @@
                 <a class="pill cta-app" href="https://your-song-maker.base44.app" target="_blank" rel="noopener">Your Song Maker</a>
                 <a id="discordCTA" class="pill discord-cta" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener" title="Join my Discord">Join Discord</a>
                 <button id="volToggleBtn" class="pill" aria-label="Toggle volume" style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px">
-                    <img id="volIcon" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="volume" style="width:28px;height:28px"> 
+                    <img id="volIcon" src="Neon blue volume off.png" alt="volume" style="width:28px;height:28px">
                 </button>
             </nav>
         </div>
     </header>
+
     <main class="hero" id="hero">
-        <div class="overlay" aria-hidden></div>
+        <div class="overlay" aria-hidden="true"></div>
+
         <div class="center">
             <div class="left">
                 <h1 class="site-title">JonnyAFK</h1>
@@ -109,21 +347,26 @@
                     <button class="btn" data-link="contact.html"><span class="label">Contact</span><span class="glow"></span></button>
                 </div>
             </div>
+
             <aside class="card">
                 <div class="media-frame" id="mediaFrame">
-                    <video class="media" id="heroMedia" playsinline muted poster="still%20landing%20page.png">
-                        <source src="Landing_Page.mp4" type="video/mp4">
-                        <source src="Landing%20Page%20(1).mp4" type="video/webm">
-                        <img src="still%20landing%20page.png" alt="JonnyAFK poster">
+                    <video class="media" id="heroMedia" playsinline muted poster="Screenshot 2026-02-15 125941.jpg">
+                        <source src="Landing Page (1).mp4" type="video/mp4">
+                        <!-- fallback image -->
+                        <img src="Screenshot 2026-02-15 125941.jpg" alt="JonnyAFK poster">
                     </video>
+
                     <video id="backgroundVideo" class="bg-video" autoplay muted loop playsinline>
-                        <source src="Landing_Page.mp4" type="video/mp4">
+                        <source src="Landing Page (1).mp4" type="video/mp4">
                     </video>
                 </div>
-                <div style="margin-top:12px;color:#bff;opacity:0.9;text-align:center;font-size:15px">Your central hub. Click any button to open that section.</div>
+                <div style="margin-top:12px;color:#bff;opacity:0.9;text-align:center;font-size:15px">
+                    Your central hub. Click any button to open that section.
+                </div>
             </aside>
         </div>
-        <div class="social-bar" aria-hidden>
+
+        <div class="social-bar" aria-hidden="false">
             <a class="social-btn" href="https://www.youtube.com/@jonnyafk" target="_blank" rel="noopener" title="YouTube">YouTube</a>
             <a class="social-btn" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener" title="Discord">Discord</a>
             <a class="social-btn" href="https://music.youtube.com/search?q=jonnyafk" target="_blank" rel="noopener" title="YouTube Music">YT Music</a>
@@ -137,19 +380,27 @@
             <a class="social-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank" rel="noopener" title="Redbubble">Redbubble</a>
             <a class="social-btn" href="mailto:jonnyafk@hotmail.com" title="Email">Email</a>
         </div>
+
         <audio id="bgAudio" src="the song.mp3" loop preload="auto"></audio>
     </main>
 
     <footer>
         <div class="footer-links">© JonnyAFK — Built with love</div>
-        <div style="text-align:center;margin-top:20px;">
-            <a href="https://soundbetter.com/profiles/728439-jon-stevers" rel="noopener noreferrer" target="_blank" title="Jon Stevers profile on SoundBetter">
-                <img alt="Jon Stevers, Full instrumental production on SoundBetter" src="https://d2p6ecj15pyavq.cloudfront.net/assets/SoundBetterBadge-c84cb3e75c4267f5bee41f7f617a81d9.svg" style="max-width:130px;"/>
+        <div style="text-align:center; margin-top:8px;">
+            <a href="https://soundbetter.com/profiles/728439-jon-stevers"
+               rel="noopener noreferrer"
+               target="_blank"
+               title="Jon Stevers profile on SoundBetter">
+                <img
+                    alt="Jon Stevers, Full instrumental production on SoundBetter"
+                    src="https://d2p6ecj15pyavq.cloudfront.net/assets/SoundBetterBadge-c84cb3e75c4267f5bee41f7f617a81d9.svg"
+                    style="max-width:130px; cursor:pointer;" />
             </a>
         </div>
     </footer>
 
     <script>
+        // Button ripple + click handler
         document.querySelectorAll('.btn').forEach(btn=>{
             btn.addEventListener('click', e=>{
                 const rect = btn.getBoundingClientRect();
@@ -161,11 +412,15 @@
                 r.style.top = (e.clientY - rect.top - size/2)+'px';
                 btn.appendChild(r);
                 setTimeout(()=>r.remove(),700);
-                const target = btn.dataset.link || '#';
-                if(target && target !== '#'){window.location.href = target;}
-            })
-        })
 
+                const target = btn.dataset.link || '#';
+                if(target && target !== '#'){
+                    window.location.href = target;
+                }
+            });
+        });
+
+        // Header logo parallax
         const hero = document.getElementById('hero');
         const headerLogo = document.querySelector('.brand');
         if(hero && typeof hero.addEventListener === 'function'){
@@ -175,13 +430,16 @@
                     const px = (e.clientX - rect.left) / rect.width - 0.5;
                     const py = (e.clientY - rect.top) / rect.height - 0.5;
                     if(headerLogo) headerLogo.style.transform = `translate3d(${px*10}px,${py*6}px,0) rotate(${px*2}deg)`;
-                }catch(err){console.warn('parallax handler failed', err);}
+                }catch(err){
+                    console.warn('parallax handler failed', err);
+                }
             });
             hero.addEventListener('mouseleave', ()=>{
-                try{if(headerLogo) headerLogo.style.transform='translate3d(0,0,0)';}catch(e){}
+                try{ if(headerLogo) headerLogo.style.transform='translate3d(0,0,0)'; }catch(e){}
             });
         }
 
+        // Pause background media on small devices
         (function(){
             const v = document.getElementById('backgroundVideo') || document.getElementById('heroMedia');
             try{
@@ -189,21 +447,26 @@
             }catch(e){}
         })();
 
+        // Gears (using gear1.png, gear2.png, gear3.png, gear4.png)
         (function(){
             const pairs = [
                 {files:['gear4.png','gear2.png'], anchor:'top-right', style:{right:'6%', top:'6%'}, sizes:[160,96]},
                 {files:['gear1.png','gear3.png'], anchor:'left-middle', style:{left:'6%', top:'50%'}, sizes:[160,96]}
             ];
+
             const wrapper = document.createElement('div');
             wrapper.className = 'gear-wrapper';
             wrapper.style.pointerEvents = 'none';
             document.body.appendChild(wrapper);
+
             const createdPairs = [];
+
             pairs.forEach((p,i)=>{
                 const cont = document.createElement('div');
                 cont.style.position = 'fixed';
                 cont.style.zIndex = 60;
                 cont.style.pointerEvents = 'none';
+
                 if(p.anchor === 'top-right'){
                     cont.style.right = '48px';
                     cont.style.top = '22px';
@@ -213,63 +476,85 @@
                 } else {
                     Object.keys(p.style).forEach(k=> cont.style[k] = p.style[k]);
                 }
+
                 const g1 = new Image(); const g2 = new Image();
                 g1.className = 'gear-item'; g2.className = 'gear-item';
                 g1.style.position = g2.style.position = 'absolute';
                 g1.style.transformOrigin = g2.style.transformOrigin = 'center center';
+
                 const sizeA = p.sizes[0];
                 const sizeB = p.sizes[1];
                 g1.style.width = sizeA + 'px';
                 g1.style.height = 'auto';
                 g2.style.width = sizeB + 'px';
                 g2.style.height = 'auto';
+
                 const containerW = Math.round(sizeA + sizeB * 0.8);
                 const containerH = Math.round(Math.max(sizeA, sizeB) + 20);
                 cont.style.width = containerW + 'px';
                 cont.style.height = containerH + 'px';
+
                 g1.style.left = '0px';
                 g1.style.top = Math.round((containerH - sizeA)/2) + 'px';
+
                 const overlapFactor = 0.36;
                 const g2Left = Math.round(sizeA - sizeB * overlapFactor);
                 g2.style.left = g2Left + 'px';
                 g2.style.top = Math.round((containerH - sizeB)/2) + 'px';
+
                 g1.dataset.angle = '0'; g2.dataset.angle = '0';
+
                 g1.src = encodeURI((p.files[0]||'').trim());
                 g2.src = encodeURI((p.files[1]||'').trim());
                 g1.onerror = ()=>{ console.warn('gear image failed to load:', g1.src); g1.style.display='none'; };
                 g2.onerror = ()=>{ console.warn('gear image failed to load:', g2.src); g2.style.display='none'; };
+
                 cont.appendChild(g1); cont.appendChild(g2);
                 wrapper.appendChild(cont);
+
                 createdPairs.push({g1,g2,size1:sizeA,size2:sizeB,container:cont});
             });
+
             const TICK_MS = 100;
             const PERIOD_MS = 1000;
             const TICK_ANGLE = 18;
+
             function doTick(){
                 createdPairs.forEach(pair=>{
                     const a = pair.g1, b = pair.g2;
                     const deltaA = TICK_ANGLE;
                     const deltaB = - (deltaA * (pair.size1 / pair.size2));
+
                     a.dataset.angle = (parseFloat(a.dataset.angle) + deltaA) % 360;
                     b.dataset.angle = (parseFloat(b.dataset.angle) + deltaB) % 360;
+
                     a.style.transition = `transform ${TICK_MS}ms linear`;
                     b.style.transition = `transform ${TICK_MS}ms linear`;
                     a.style.transform = `rotate(${a.dataset.angle}deg)`;
                     b.style.transform = `rotate(${b.dataset.angle}deg)`;
+
                     setTimeout(()=>{
                         a.style.transition = 'none';
                         b.style.transition = 'none';
                     }, TICK_MS + 10);
                 });
             }
+
             setTimeout(()=>{ doTick(); setInterval(doTick, PERIOD_MS); }, 360);
         })();
 
+        // Discord CTA pulse
         const discordCTA = document.getElementById('discordCTA');
-        if(discordCTA){discordCTA.href = 'https://discord.gg/WMFDqpyvhc'; discordCTA.classList.add('pulse');}
+        if(discordCTA){
+            discordCTA.href = 'https://discord.gg/WMFDqpyvhc';
+            discordCTA.classList.add('pulse');
+        }
 
+        // Audio + volume button
         const bgAudio = document.getElementById('bgAudio');
-        if(bgAudio){bgAudio.muted = true;}
+        if(bgAudio){
+            bgAudio.muted = true;
+        }
 
         const heroMedia = document.getElementById('heroMedia');
         if(heroMedia){
@@ -278,7 +563,6 @@
                 window.scrollBy({top: e.deltaY, left: 0, behavior: 'auto'});
             }, {passive:false});
         }
-
         const mediaFrame = document.getElementById('mediaFrame');
         if(mediaFrame){
             mediaFrame.addEventListener('wheel', e=>{
@@ -296,21 +580,31 @@
             const ICON_OFF = 'Neon blue volume off.png';
             const ICON_OFF_HOVER = 'Neon blue volume off hover.png';
             if(!volBtn || !volIcon || !a) return;
+
             volIcon.dataset.on = encodeURI(ICON_ON.trim());
             volIcon.dataset.onHover = encodeURI(ICON_ON_HOVER.trim());
             volIcon.dataset.off = encodeURI(ICON_OFF.trim());
             volIcon.dataset.offHover = encodeURI(ICON_OFF_HOVER.trim());
+
             volIcon.onerror = function(){
                 console.warn('volume icon failed to load', volIcon.src);
                 volIcon.style.display = 'none';
                 const parent = volIcon.parentNode;
                 if(parent && !parent.querySelector('.vol-emoji')){
-                    const fb = document.createElement('span'); fb.className = 'vol-emoji'; fb.textContent = '🔊'; fb.style.fontSize = '18px'; fb.style.color = 'var(--neon)'; fb.style.display = 'inline-block'; fb.style.marginLeft = '2px';
+                    const fb = document.createElement('span');
+                    fb.className = 'vol-emoji';
+                    fb.textContent = '🔊';
+                    fb.style.fontSize = '18px';
+                    fb.style.color = 'var(--neon)';
+                    fb.style.display = 'inline-block';
+                    fb.style.marginLeft = '2px';
                     parent.appendChild(fb);
                 }
             };
+
             function setOn(){ volIcon.src = volIcon.dataset.on || ICON_ON; volBtn.classList.add('vol-on'); volBtn.classList.remove('vol-off'); }
             function setOff(){ volIcon.src = volIcon.dataset.off || ICON_OFF; volBtn.classList.add('vol-off'); volBtn.classList.remove('vol-on'); }
+
             let __flashTimer = null;
             function startFlashing(){
                 if(__flashTimer) return;
@@ -322,7 +616,9 @@
                 volBtn.classList.add('vol-need-click');
             }
             function stopFlashing(){ if(__flashTimer){ clearInterval(__flashTimer); __flashTimer = null; } volBtn.classList.remove('vol-need-click'); refresh(); }
+
             function refresh(){ if(!a.paused && !a.muted){ setOn(); } else { setOff(); } }
+
             volBtn.addEventListener('click', async (e)=>{
                 e.preventDefault();
                 try{
@@ -331,24 +627,24 @@
                 }catch(err){ console.warn('volBtn play failed', err); }
                 refresh();
             });
+
             volBtn.addEventListener('mouseenter', ()=>{ volIcon.src = (!a.paused && !a.muted) ? volIcon.dataset.onHover || ICON_ON_HOVER : volIcon.dataset.offHover || ICON_OFF_HOVER; });
             volBtn.addEventListener('mouseleave', refresh);
+
             a.addEventListener('play', refresh);
             a.addEventListener('pause', refresh);
             a.addEventListener('volumechange', refresh);
+
             setTimeout(refresh, 80);
+
             (async function tryAutoplay(){
                 try{
                     a.muted = false; a.volume = 1;
                     await a.play();
-                    const volBtnSuccess = document.getElementById('volToggleBtn');
-                    if(volBtnSuccess && volBtnSuccess.classList.contains('vol-need-click')) volBtnSuccess.classList.remove('vol-need-click');
                 }catch(err){
                     try{
                         a.muted = true;
                         await a.play();
-                        const volBtnMuted = document.getElementById('volToggleBtn');
-                        if(volBtnMuted && volBtnMuted.classList.contains('vol-need-click')) volBtnMuted.classList.remove('vol-need-click');
                     }catch(err2){
                         try{
                             const volBtn = document.getElementById('volToggleBtn');
@@ -364,54 +660,6 @@
                 }
                 setTimeout(refresh, 60);
             })();
-        })();
-
-        (function(){
-            const appBtn = document.querySelector('.pill.cta-app');
-            let previewEl = null;
-            if(!appBtn) return;
-            let hideTimer = null;
-            function showPreview(e){
-                if(!previewEl){
-                    previewEl = document.createElement('div');
-                    previewEl.className = 'app-preview';
-                    const v = document.createElement('video');
-                    v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
-                    const src = document.createElement('source');
-                    src.src = 'Landing_Page.mp4'; src.type = 'video/mp4';
-                    v.appendChild(src);
-                    previewEl.appendChild(v);
-                    document.body.appendChild(previewEl);
-                    previewEl.addEventListener('mouseenter', ()=>{ if(hideTimer){ clearTimeout(hideTimer); hideTimer = null } });
-                    previewEl.addEventListener('mouseleave', ()=>{ hidePreview(); });
-                }
-                if(hideTimer){ clearTimeout(hideTimer); hideTimer = null }
-                positionPreviewAt(e);
-                requestAnimationFrame(()=> previewEl.classList.add('visible'));
-            }
-            function hidePreview(){
-                if(hideTimer) clearTimeout(hideTimer);
-                hideTimer = setTimeout(()=>{
-                    if(!previewEl) return;
-                    previewEl.classList.remove('visible');
-                    setTimeout(()=>{ if(previewEl){ previewEl.remove(); previewEl = null } }, 180);
-                    appBtn.removeEventListener('mousemove', positionPreviewAt);
-                    hideTimer = null;
-                }, 160);
-            }
-            function positionPreviewAt(e){
-                if(!previewEl) return;
-                const mx = e && (e.pageX || e.clientX + window.scrollX);
-                const my = e && (e.pageY || e.clientY + window.scrollY);
-                const left = (typeof mx === 'number') ? Math.min(window.innerWidth - 360, Math.max(12, mx - 170)) : (Math.min(window.innerWidth - 360, Math.max(12, appBtn.getBoundingClientRect().left + appBtn.offsetWidth/2 - 170)));
-                const top = (typeof my === 'number') ? Math.min(window.innerHeight - 220 + window.scrollY, Math.max(12 + window.scrollY, my + 18)) : (appBtn.getBoundingClientRect().bottom + 12 + window.scrollY);
-                previewEl.style.left = left + 'px';
-                previewEl.style.top = top + 'px';
-            }
-            appBtn.addEventListener('mouseenter', (ev)=>{ showPreview(ev); appBtn.addEventListener('mousemove', positionPreviewAt); });
-            appBtn.addEventListener('mouseleave', hidePreview);
-            window.addEventListener('resize', ()=> positionPreviewAt());
-            window.addEventListener('scroll', ()=> positionPreviewAt());
         })();
     </script>
 </body>
