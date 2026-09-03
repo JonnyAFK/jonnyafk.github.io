@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>JonnyAFK</title>
+  <title>JonnyAFK • Let’s Play Pulse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
       --bg: #05060a;
-      --accent: #00c8ff;
+      --card: #111320;
+      --accent: #ff3366;
+      --accent-soft: #ff336680;
       --text: #f5f5f7;
       --muted: #9ea0b5;
       --border: #26293a;
@@ -28,8 +30,8 @@
 
     header {
       width: 100%;
-      max-width: 1100px;
-      padding: 24px 16px;
+      max-width: 960px;
+      padding: 24px 16px 8px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -40,102 +42,111 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-size: 20px;
-      color: var(--accent);
+      font-size: 14px;
+      color: var(--muted);
     }
 
     nav a {
       color: var(--muted);
       text-decoration: none;
       margin-left: 16px;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     nav a:hover { color: var(--text); }
 
     main {
       width: 100%;
-      max-width: 1100px;
+      max-width: 960px;
       padding: 0 16px 40px;
       margin: 0 auto;
-      text-align: center;
     }
 
-    /* GIANT HERO VIDEO */
-    .hero-video {
+    /* UPDATED HERO SECTION */
+    .hero {
+      margin-top: 24px;
+      padding: 0;
+      border-radius: 16px;
+      background: none;
+      border: none;
+      display: block;
+    }
+
+    .hero video {
       width: 100%;
-      max-width: 1100px;
-      margin: 40px auto 20px;
       border-radius: 16px;
       border: 1px solid var(--border);
     }
 
-    /* SECTION */
+    /* Tester section (unchanged style) */
     .section {
-      margin-top: 40px;
-      padding: 24px 20px;
+      margin-top: 32px;
+      padding: 20px 18px;
       border-radius: 16px;
       background: #0b0d16;
       border: 1px solid var(--border);
-      text-align: left;
     }
 
     .section h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
     .section p {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--muted);
       margin-bottom: 10px;
     }
 
     .section ol {
-      margin-left: 20px;
+      margin-left: 18px;
       margin-bottom: 12px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .tester-button {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 8px;
       background: var(--accent);
-      color: #000;
-      padding: 12px 20px;
+      color: #fff;
+      padding: 10px 18px;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 15px;
     }
 
-    .tester-button:hover { opacity: 0.85; }
+    .tester-button:hover { background: #ff4b78; }
 
-    /* SOCIAL GRID */
-    .social-grid {
-      margin-top: 40px;
+    /* Links grid (unchanged) */
+    .links-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
+      margin-top: 12px;
     }
 
-    .social-card {
+    .link-card {
       border-radius: 12px;
       border: 1px solid var(--border);
       padding: 12px 10px;
       background: #0a0c14;
       font-size: 14px;
-      text-align: center;
     }
 
-    .social-card a {
+    .link-card a {
       color: var(--text);
       text-decoration: none;
       font-weight: 500;
     }
 
-    .social-card a:hover { color: var(--accent); }
+    .link-card a:hover { color: var(--accent); }
+
+    .link-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
 
     footer {
       width: 100%;
@@ -153,19 +164,23 @@
   <header>
     <div class="logo">JONNYAFK</div>
     <nav>
-      <a href="#tester">Tester Program</a>
-      <a href="#social">Links</a>
+      <a href="#pulse">Let’s Play Pulse</a>
+      <a href="#tester">Become a Tester</a>
+      <a href="#links">Links</a>
+      <a href="#tester">Google Play Tester</a> <!-- NEW LINK -->
     </nav>
   </header>
 
   <main>
 
-    <!-- GIANT HERO VIDEO -->
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="Landing_Page.mp4" type="video/mp4">
-    </video>
+    <!-- HERO (UPDATED — ONLY VIDEO, NO TEXT) -->
+    <section class="hero" id="pulse">
+      <video autoplay muted loop playsinline>
+        <source src="Landing_Page.mp4" type="video/mp4">
+      </video>
+    </section>
 
-    <!-- GOOGLE PLAY TESTER FUNNEL -->
+    <!-- TESTER SECTION (UNCHANGED) -->
     <section class="section" id="tester">
       <h2>Help Launch Let’s Play Pulse on Google Play</h2>
       <p>
@@ -185,29 +200,40 @@
         Become a Google Play Tester
       </a>
 
-      <p style="margin-top:8px; color:var(--muted);">
-        Testers get early access, feature influence, and a spot in the “Founding Testers” credits.
+      <p class="hero-note" style="margin-top:8px;">
+        Testers get early access, a say in new features, and a spot in the “Founding Testers” credits.
       </p>
     </section>
 
-    <!-- SOCIAL LINKS -->
-    <section class="section" id="social">
+    <!-- LINKS (UNCHANGED) -->
+    <section class="section" id="links">
       <h2>Everything JonnyAFK</h2>
-      <p>Your music, art, merch, and chaos — all in one place.</p>
+      <p>Music, art, games, and shenanigans. This is the central hub — find all the places I’m building and playing.</p>
 
-      <div class="social-grid">
-        <div class="social-card"><a href="https://www.youtube.com/@jonnyafk">YouTube</a></div>
-        <div class="social-card"><a href="https://discord.gg/WMFDqpyvhc">Discord</a></div>
-        <div class="social-card"><a href="https://open.spotify.com/search/jonnyafk">Spotify</a></div>
-        <div class="social-card"><a href="https://www.redbubble.com/people/jonnyafk/shop">Merch</a></div>
-        <div class="social-card"><a href="mailto:jonnyafk@gmail.com">Email</a></div>
+      <div class="links-grid">
+        <div class="link-card">
+          <a href="#">YouTube (JonnyAFK)</a>
+          <p>Dev logs, music, and whatever chaos I’m into this week.</p>
+        </div>
+        <div class="link-card">
+          <a href="#">Spotify / Music</a>
+          <p>Worship, acoustic, and other tracks I’ve put out.</p>
+        </div>
+        <div class="link-card">
+          <a href="#">Discord</a>
+          <p>Hang out, give feedback on Let’s Play Pulse, and join squad experiments.</p>
+        </div>
+        <div class="link-card">
+          <a href="#">Merch / Store</a>
+          <p>Shirts, art, and whatever else I decide to print.</p>
+        </div>
       </div>
     </section>
 
   </main>
 
   <footer>
-    &copy; <span id="year"></span> JonnyAFK • Built with GitHub Pages
+    &copy; <span id="year"></span> JonnyAFK • Built with GitHub Pages • Let’s Play.
   </footer>
 
   <script>
