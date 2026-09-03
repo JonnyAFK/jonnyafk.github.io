@@ -27,6 +27,8 @@
             font-size:18px;
         }
 
+        a{color:inherit}
+
         /* HEADER */
         .site-header{
             position:fixed;
@@ -87,6 +89,7 @@
             text-decoration:none;
             font-weight:700;
             font-size:16px;
+            cursor:pointer;
         }
         .pill:hover{
             box-shadow:0 10px 30px rgba(0,170,255,0.06);
@@ -113,7 +116,7 @@
             transform:translateY(-6px) scale(1.02);
         }
 
-        /* HERO */
+        /* HERO (HOME) */
         .hero{
             position:relative;
             min-height:100vh;
@@ -131,8 +134,6 @@
             backdrop-filter:blur(2px);
             z-index:2;
         }
-
-        /* MEDIA FRAME */
         .media-frame{
             position:relative;
             z-index:40;
@@ -163,7 +164,7 @@
             pointer-events:none;
         }
 
-        /* GEARS — now behind everything */
+        /* GEARS */
         .gear-wrapper{
             position:fixed;
             inset:0;
@@ -204,9 +205,66 @@
             font-family:'Shadows Into Light',cursive;
             z-index:400;
         }
+
+        /* PAGES */
+        .page{
+            display:none;
+            padding-top:160px;
+            padding-bottom:80px;
+        }
+        .page.active{
+            display:block;
+        }
+        .page-wrap{
+            max-width:1200px;
+            margin:0 auto;
+            padding:0 20px;
+            text-align:center;
+        }
+        .section-title{
+            font-size:42px;
+            color:var(--neon);
+            margin-bottom:40px;
+            font-family:'Orbitron',sans-serif;
+        }
+        .card-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:28px;
+        }
+        .card{
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.06);
+            border-radius:12px;
+            padding:20px;
+            text-align:center;
+            transition:transform .2s ease, box-shadow .2s ease;
+        }
+        .card:hover{
+            transform:translateY(-6px);
+            box-shadow:0 20px 60px rgba(0,255,230,0.12);
+        }
+        .card img{
+            width:100%;
+            border-radius:10px;
+            margin-bottom:16px;
+        }
+        .card a.btn{
+            display:inline-block;
+            padding:10px 18px;
+            border-radius:8px;
+            background:linear-gradient(90deg,#0ea5ff,#00f3d9);
+            color:#001;
+            font-weight:700;
+            text-decoration:none;
+        }
+
+        @media(max-width:900px){
+            .header-inner{flex-direction:column;gap:12px;justify-content:center}
+            .brand{height:160px;margin-top:-40px}
+        }
     </style>
 </head>
-
 <body>
 
     <!-- HEADER -->
@@ -221,19 +279,18 @@
             </div>
 
             <nav class="topnav">
-                <a class="pill" href="music.html">Music</a>
-                <a class="pill" href="art.html">Art</a>
-                <a class="pill" href="merch.html">Merch</a>
-                <a class="pill" href="apps.html">Apps</a>
-                <a class="pill" href="about.html">About</a>
-                <a class="pill" href="contact.html">Contact</a>
+                <button class="pill" data-page="home">Home</button>
+                <button class="pill" data-page="music">Music</button>
+                <button class="pill" data-page="art">Art</button>
+                <button class="pill" data-page="merch">Merch</button>
+                <button class="pill" data-page="apps">Apps</button>
+                <button class="pill" data-page="about">About</button>
+                <button class="pill" data-page="contact">Contact</button>
 
-                <!-- Song Maker CTA -->
                 <a class="pill cta-app" href="https://your-song-maker.base44.app" target="_blank" rel="noopener">
                     Your Song Maker
                 </a>
 
-                <!-- Discord -->
                 <a id="discordCTA" class="discord-cta" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener">
                     Join Discord
                 </a>
@@ -241,20 +298,122 @@
         </div>
     </header>
 
-    <!-- HERO -->
-    <main class="hero" id="hero">
+    <!-- HOME -->
+    <main class="hero page active" id="page-home">
         <div class="overlay"></div>
-
         <div class="media-frame" id="mediaFrame">
             <video class="media" id="heroMedia" playsinline muted poster="still landing page.png">
                 <source src="Landing Page.mp4" type="video/mp4">
             </video>
-
             <video class="bg-video" autoplay muted loop playsinline>
                 <source src="Landing Page.mp4" type="video/mp4">
             </video>
         </div>
     </main>
+
+    <!-- MUSIC PAGE -->
+    <section class="page" id="page-music">
+        <div class="page-wrap">
+            <div class="section-title">Music</div>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="ytmusic-preview.png" alt="YouTube Music Preview">
+                    <a class="btn" href="https://music.youtube.com/search?q=jonnyafk" target="_blank">Watch on YouTube Music</a>
+                </div>
+                <div class="card">
+                    <img src="apple-preview.png" alt="Apple Music Preview">
+                    <a class="btn" href="https://music.apple.com/search?term=jonnyafk" target="_blank">Listen on Apple Music</a>
+                </div>
+                <div class="card">
+                    <img src="spotify-preview.png" alt="Spotify Preview">
+                    <a class="btn" href="https://open.spotify.com/search/jonnyafk" target="_blank">Listen on Spotify</a>
+                </div>
+                <div class="card">
+                    <img src="yt-preview.png" alt="YouTube Preview">
+                    <a class="btn" href="https://www.youtube.com/@jonnyafk" target="_blank">Watch on YouTube</a>
+                </div>
+                <div class="card">
+                    <img src="pandora-preview.png" alt="Pandora Preview">
+                    <a class="btn" href="https://www.pandora.com/search/jonnyafk" target="_blank">Listen on Pandora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ART PAGE -->
+    <section class="page" id="page-art">
+        <div class="page-wrap">
+            <div class="section-title">Art</div>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="redbubble-preview.png" alt="Redbubble Preview">
+                    <a class="btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank">Shop Redbubble</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MERCH PAGE -->
+    <section class="page" id="page-merch">
+        <div class="page-wrap">
+            <div class="section-title">Merch</div>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="redbubble-preview.png" alt="Redbubble Merch Preview">
+                    <a class="btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank">Shop Redbubble</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPS PAGE -->
+    <section class="page" id="page-apps">
+        <div class="page-wrap">
+            <div class="section-title">Apps</div>
+            <div class="card-grid">
+                <div class="card">
+                    <img src="songmaker-preview.png" alt="Your Song Maker Preview">
+                    <a class="btn" href="https://your-song-maker.base44.app" target="_blank">Your Song Maker</a>
+                </div>
+                <div class="card">
+                    <img src="letsplay-preview.png" alt="Let’s Play Pulse Preview">
+                    <a class="btn" href="https://wild-lets-play-pulse.base44.app" target="_blank">Let’s Play Pulse</a>
+                </div>
+                <div class="card">
+                    <img src="adulting-preview.png" alt="Adulting Documents Preview">
+                    <a class="btn" href="https://adulting-documents.base44.app" target="_blank">Adulting Documents</a>
+                </div>
+                <div class="card">
+                    <img src="tenant-preview.png" alt="TenantFirst Preview">
+                    <a class="btn" href="https://tenantfirst.base44.app" target="_blank">TenantFirst</a>
+                </div>
+                <div class="card">
+                    <img src="tutor-preview.png" alt="TutorLink Preview">
+                    <a class="btn" href="https://tutor-link.base44.app" target="_blank">TutorLink</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT PAGE (simple placeholder to expand later) -->
+    <section class="page" id="page-about">
+        <div class="page-wrap">
+            <div class="section-title">About</div>
+            <p style="color:#bff;max-width:720px;margin:0 auto;">
+                JonnyAFK is a creator of music, apps, and shenanigans. This page is your future bio, story, and behind‑the‑scenes hub.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACT PAGE (simple placeholder) -->
+    <section class="page" id="page-contact">
+        <div class="page-wrap">
+            <div class="section-title">Contact</div>
+            <p style="color:#bff;max-width:720px;margin:0 auto;">
+                For collaborations, commissions, or questions, reach out at <a href="mailto:jonnyafk@hotmail.com">jonnyafk@hotmail.com</a>.
+            </p>
+        </div>
+    </section>
 
     <!-- SOCIAL -->
     <div class="social-bar">
@@ -277,13 +436,26 @@
         © JonnyAFK — Built with love
     </footer>
 
-    <!-- AUDIO -->
+    <!-- AUDIO (optional, not wired here) -->
     <audio id="bgAudio" src="the song.mp3" loop preload="auto"></audio>
 
-    <!-- JS -->
     <script>
-        /* PARALLAX HEADER LOGO */
-        const hero = document.getElementById('hero');
+        // Simple page router
+        const pages = document.querySelectorAll('.page');
+        function showPage(id){
+            pages.forEach(p=>p.classList.remove('active'));
+            const el = document.getElementById('page-'+id);
+            if(el) el.classList.add('active');
+        }
+        document.querySelectorAll('.topnav .pill[data-page]').forEach(btn=>{
+            btn.addEventListener('click',()=>{
+                showPage(btn.dataset.page);
+                window.scrollTo({top:0,behavior:'smooth'});
+            });
+        });
+
+        // Parallax logo on home hero
+        const hero = document.getElementById('page-home');
         const headerLogo = document.querySelector('.brand');
         hero.addEventListener('mousemove', e=>{
             const rect = hero.getBoundingClientRect();
@@ -295,23 +467,18 @@
             headerLogo.style.transform='translate3d(0,0,0)';
         });
 
-        /* MOBILE VIDEO PAUSE */
-        const bgVid = document.getElementById('backgroundVideo');
-        if(window.matchMedia('(max-width:600px)').matches){
-            if(bgVid) bgVid.pause();
-        }
-
-        /* SCROLL FORWARDING */
-        const forwardScroll = el=>{
+        // Forward scroll from media
+        function forwardScroll(el){
+            if(!el) return;
             el.addEventListener('wheel', e=>{
                 e.preventDefault();
                 window.scrollBy({top:e.deltaY});
             }, {passive:false});
-        };
+        }
         forwardScroll(document.getElementById('heroMedia'));
         forwardScroll(document.getElementById('mediaFrame'));
 
-        /* GEARS — behind everything */
+        // Gears behind everything
         (function(){
             const pairs = [
                 {files:['gear4.png','gear2.png'], anchor:'top-right', sizes:[220,140]},
@@ -327,7 +494,7 @@
             pairs.forEach(p=>{
                 const cont = document.createElement('div');
                 cont.style.position='fixed';
-                cont.style.zIndex='0'; /* FIXED */
+                cont.style.zIndex='0';
                 cont.style.pointerEvents='none';
 
                 if(p.anchor==='top-right'){
@@ -340,9 +507,6 @@
 
                 const g1 = new Image();
                 const g2 = new Image();
-                g1.className='gear-item';
-                g2.className='gear-item';
-
                 const sizeA = p.sizes[0];
                 const sizeB = p.sizes[1];
 
@@ -354,6 +518,7 @@
                 cont.style.width=containerW+'px';
                 cont.style.height=containerH+'px';
 
+                g1.style.position=g2.style.position='absolute';
                 g1.style.left='0px';
                 g1.style.top=(containerH-sizeA)/2+'px';
 
@@ -400,6 +565,5 @@
             setTimeout(()=>{ tick(); setInterval(tick,PERIOD_MS); },360);
         })();
     </script>
-
 </body>
 </html>
