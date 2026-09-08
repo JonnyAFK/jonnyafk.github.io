@@ -116,7 +116,7 @@
             transform:translateY(-6px) scale(1.02);
         }
 
-        /* HERO (HOME) */
+        /* HERO */
         .hero{
             position:relative;
             min-height:100vh;
@@ -162,48 +162,6 @@
             z-index:1;
             filter:brightness(.55);
             pointer-events:none;
-        }
-
-        /* GEARS */
-        .gear-wrapper{
-            position:fixed;
-            inset:0;
-            pointer-events:none;
-            z-index:0;
-        }
-
-        /* SOCIAL BAR */
-        .social-bar{
-            position:fixed;
-            left:0; right:0;
-            bottom:64px;
-            display:flex;
-            justify-content:center;
-            gap:12px;
-            z-index:110;
-        }
-        .social-btn{
-            padding:10px 16px;
-            border-radius:999px;
-            background:rgba(255,255,255,0.02);
-            color:var(--neon);
-            text-decoration:none;
-            border:1px solid rgba(255,255,255,0.03);
-            font-weight:700;
-            font-size:15px;
-        }
-
-        /* FOOTER */
-        footer{
-            position:fixed;
-            left:0; right:0;
-            bottom:12px;
-            text-align:center;
-            color:var(--hand-color);
-            opacity:0.95;
-            font-size:18px;
-            font-family:'Shadows Into Light',cursive;
-            z-index:400;
         }
 
         /* PAGES */
@@ -286,6 +244,7 @@
                 <button class="pill" data-page="apps">Apps</button>
                 <button class="pill" data-page="about">About</button>
                 <button class="pill" data-page="contact">Contact</button>
+                <button class="pill" data-page="privacy">Privacy Policy</button>
 
                 <a class="pill cta-app" href="https://your-song-maker.base44.app" target="_blank" rel="noopener">
                     Your Song Maker
@@ -328,14 +287,6 @@
                     <img src="spotify-preview.png" alt="Spotify Preview">
                     <a class="btn" href="https://open.spotify.com/search/jonnyafk" target="_blank">Listen on Spotify</a>
                 </div>
-                <div class="card">
-                    <img src="yt-preview.png" alt="YouTube Preview">
-                    <a class="btn" href="https://www.youtube.com/@jonnyafk" target="_blank">Watch on YouTube</a>
-                </div>
-                <div class="card">
-                    <img src="pandora-preview.png" alt="Pandora Preview">
-                    <a class="btn" href="https://www.pandora.com/search/jonnyafk" target="_blank">Listen on Pandora</a>
-                </div>
             </div>
         </div>
     </section>
@@ -371,31 +322,37 @@
         <div class="page-wrap">
             <div class="section-title">Apps</div>
             <div class="card-grid">
+
                 <div class="card">
                     <img src="songmaker-preview.png" alt="Your Song Maker Preview">
                     <a class="btn" href="https://your-song-maker.base44.app" target="_blank">Your Song Maker</a>
                 </div>
+
                 <div class="card">
                     <img src="letsplay-preview.png" alt="Let’s Play Pulse Preview">
                     <a class="btn" href="https://wild-lets-play-pulse.base44.app" target="_blank">Let’s Play Pulse</a>
                 </div>
+
                 <div class="card">
                     <img src="adulting-preview.png" alt="Adulting Documents Preview">
                     <a class="btn" href="https://adulting-documents.base44.app" target="_blank">Adulting Documents</a>
                 </div>
+
                 <div class="card">
-                    <img src="tenant-preview.png" alt="TenantFirst Preview">
+                    <img src="tenantfirst-preview.png" alt="TenantFirst Preview">
                     <a class="btn" href="https://tenantfirst.base44.app" target="_blank">TenantFirst</a>
                 </div>
+
                 <div class="card">
-                    <img src="tutor-preview.png" alt="TutorLink Preview">
+                    <img src="tutorlink-preview.png" alt="TutorLink Preview">
                     <a class="btn" href="https://tutor-link.base44.app" target="_blank">TutorLink</a>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- ABOUT PAGE (simple placeholder to expand later) -->
+    <!-- ABOUT PAGE -->
     <section class="page" id="page-about">
         <div class="page-wrap">
             <div class="section-title">About</div>
@@ -405,12 +362,28 @@
         </div>
     </section>
 
-    <!-- CONTACT PAGE (simple placeholder) -->
+    <!-- CONTACT PAGE -->
     <section class="page" id="page-contact">
         <div class="page-wrap">
             <div class="section-title">Contact</div>
             <p style="color:#bff;max-width:720px;margin:0 auto;">
                 For collaborations, commissions, or questions, reach out at <a href="mailto:jonnyafk@hotmail.com">jonnyafk@hotmail.com</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- PRIVACY POLICY PAGE -->
+    <section class="page" id="page-privacy">
+        <div class="page-wrap">
+            <div class="section-title">Privacy Policy</div>
+            <p style="color:#bff;max-width:720px;margin:0 auto;line-height:1.6;">
+                <strong>Effective Date:</strong> September 7, 2026<br><br>
+
+                Let’s Play collects only the minimum information required to operate the app, including account details and notification preferences.  
+                Information is used solely for delivering app functionality and is never sold, rented, or shared except with services required to operate notifications (such as push providers or optional integrations like Discord or Telegram).  
+                Users may update or delete their information at any time.  
+                The app is not intended for children under 13.  
+                For questions, contact: <a href="mailto:jon@letsplayapp.com">jon@letsplayapp.com</a>.
             </p>
         </div>
     </section>
@@ -427,143 +400,4 @@
         <a class="social-btn" href="https://www.facebook.com/jonnyafk" target="_blank">Facebook</a>
         <a class="social-btn" href="https://www.patreon.com/jonnyafk" target="_blank">Patreon</a>
         <a class="social-btn" href="https://music.apple.com/search?term=jonnyafk" target="_blank">Apple Music</a>
-        <a class="social-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank">Redbubble</a>
-        <a class="social-btn" href="mailto:jonnyafk@hotmail.com">Email</a>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        © JonnyAFK — Built with love
-    </footer>
-
-    <!-- AUDIO (optional, not wired here) -->
-    <audio id="bgAudio" src="the song.mp3" loop preload="auto"></audio>
-
-    <script>
-        // Simple page router
-        const pages = document.querySelectorAll('.page');
-        function showPage(id){
-            pages.forEach(p=>p.classList.remove('active'));
-            const el = document.getElementById('page-'+id);
-            if(el) el.classList.add('active');
-        }
-        document.querySelectorAll('.topnav .pill[data-page]').forEach(btn=>{
-            btn.addEventListener('click',()=>{
-                showPage(btn.dataset.page);
-                window.scrollTo({top:0,behavior:'smooth'});
-            });
-        });
-
-        // Parallax logo on home hero
-        const hero = document.getElementById('page-home');
-        const headerLogo = document.querySelector('.brand');
-        hero.addEventListener('mousemove', e=>{
-            const rect = hero.getBoundingClientRect();
-            const px = (e.clientX - rect.left) / rect.width - 0.5;
-            const py = (e.clientY - rect.top) / rect.height - 0.5;
-            headerLogo.style.transform = `translate3d(${px*10}px,${py*6}px,0) rotate(${px*2}deg)`;
-        });
-        hero.addEventListener('mouseleave', ()=>{
-            headerLogo.style.transform='translate3d(0,0,0)';
-        });
-
-        // Forward scroll from media
-        function forwardScroll(el){
-            if(!el) return;
-            el.addEventListener('wheel', e=>{
-                e.preventDefault();
-                window.scrollBy({top:e.deltaY});
-            }, {passive:false});
-        }
-        forwardScroll(document.getElementById('heroMedia'));
-        forwardScroll(document.getElementById('mediaFrame'));
-
-        // Gears behind everything
-        (function(){
-            const pairs = [
-                {files:['gear4.png','gear2.png'], anchor:'top-right', sizes:[220,140]},
-                {files:['gear1.png','gear3.png'], anchor:'left-middle', sizes:[220,140]}
-            ];
-
-            const wrapper = document.createElement('div');
-            wrapper.className = 'gear-wrapper';
-            document.body.appendChild(wrapper);
-
-            const created = [];
-
-            pairs.forEach(p=>{
-                const cont = document.createElement('div');
-                cont.style.position='fixed';
-                cont.style.zIndex='0';
-                cont.style.pointerEvents='none';
-
-                if(p.anchor==='top-right'){
-                    cont.style.right='48px';
-                    cont.style.top='22px';
-                } else {
-                    cont.style.left='48px';
-                    cont.style.bottom='120px';
-                }
-
-                const g1 = new Image();
-                const g2 = new Image();
-                const sizeA = p.sizes[0];
-                const sizeB = p.sizes[1];
-
-                g1.style.width=sizeA+'px';
-                g2.style.width=sizeB+'px';
-
-                const containerW = sizeA + sizeB*0.8;
-                const containerH = Math.max(sizeA,sizeB)+20;
-                cont.style.width=containerW+'px';
-                cont.style.height=containerH+'px';
-
-                g1.style.position=g2.style.position='absolute';
-                g1.style.left='0px';
-                g1.style.top=(containerH-sizeA)/2+'px';
-
-                const overlap=0.36;
-                g2.style.left=(sizeA-sizeB*overlap)+'px';
-                g2.style.top=(containerH-sizeB)/2+'px';
-
-                g1.src=encodeURI(p.files[0]);
-                g2.src=encodeURI(p.files[1]);
-
-                cont.appendChild(g1);
-                cont.appendChild(g2);
-                wrapper.appendChild(cont);
-
-                created.push({g1,g2,sizeA,sizeB});
-            });
-
-            const TICK_MS=100;
-            const PERIOD_MS=1000;
-            const TICK_ANGLE=18;
-
-            function tick(){
-                created.forEach(pair=>{
-                    const {g1,g2,sizeA,sizeB}=pair;
-                    const deltaA=TICK_ANGLE;
-                    const deltaB=-(deltaA*(sizeA/sizeB));
-
-                    g1.dataset.angle=(parseFloat(g1.dataset.angle||0)+deltaA)%360;
-                    g2.dataset.angle=(parseFloat(g2.dataset.angle||0)+deltaB)%360;
-
-                    g1.style.transition=`transform ${TICK_MS}ms linear`;
-                    g2.style.transition=`transform ${TICK_MS}ms linear`;
-
-                    g1.style.transform=`rotate(${g1.dataset.angle}deg)`;
-                    g2.style.transform=`rotate(${g2.dataset.angle}deg)`;
-
-                    setTimeout(()=>{
-                        g1.style.transition='none';
-                        g2.style.transition='none';
-                    },TICK_MS+10);
-                });
-            }
-
-            setTimeout(()=>{ tick(); setInterval(tick,PERIOD_MS); },360);
-        })();
-    </script>
-</body>
-</html>
+        <a class="social-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_
