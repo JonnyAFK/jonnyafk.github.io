@@ -292,16 +292,97 @@
             margin-bottom:8px;
         }
 
+        /* ===== LANDING PAGE FIX =====
+           Keep the header + hero + footer inside one viewport.
+           The landing page uses the media hero only; the duplicate
+           title/navigation block in the hero is intentionally hidden.
+        */
+        html, body{
+            height:100%;
+            min-height:100%;
+            overflow-x:hidden;
+        }
+
+        body{
+            display:flex;
+            flex-direction:column;
+        }
+
+        .site-header{
+            position:relative;
+            top:auto;
+            left:auto;
+            right:auto;
+            flex:0 0 140px;
+        }
+
+        .hero{
+            min-height:0;
+            height:auto;
+            flex:1 1 auto;
+            padding-top:0 !important;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            overflow:hidden;
+        }
+
+        /* Remove the duplicate landing-page title/tag/buttons section. */
+        .hero .left{
+            display:none !important;
+        }
+
+        .center{
+            width:100%;
+            max-width:1360px;
+            box-sizing:border-box;
+            margin:0 auto;
+            padding:20px 24px 70px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
+        .card{
+            width:min(1000px, 82vw);
+            max-width:100%;
+            margin:0 auto;
+        }
+
+        .media-frame{
+            width:100%;
+            max-width:100%;
+            box-sizing:border-box;
+            margin:0 auto;
+        }
+
+        .media-frame .media{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        .social-bar{
+            bottom:12px;
+        }
+
+        footer{
+            flex:0 0 auto;
+            padding:10px 12px 14px;
+        }
+
         /* small screens */
         @media (max-width:900px){
             .center{
                 flex-direction:column;
-                align-items:flex-start;
+                align-items:center;
+                padding:12px 14px 62px;
             }
             .card{
                 width:100%;
             }
             .site-header{
+                flex:0 0 auto;
                 height:auto;
             }
         }
@@ -372,9 +453,6 @@
                     <video id="backgroundVideo" class="bg-video" autoplay muted loop playsinline>
                         <source src="Landing Page (1).mp4" type="video/mp4">
                     </video>
-                </div>
-                <div style="margin-top:12px;color:#bff;opacity:0.9;text-align:center;font-size:15px">
-                    Your central hub. Click any button to open that section.
                 </div>
             </aside>
         </div>
