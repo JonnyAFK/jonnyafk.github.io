@@ -45,7 +45,7 @@
     }
     nav a:hover, nav a.active { background: rgba(0,243,217,0.12); }
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 40px 24px 80px;
     }
@@ -58,29 +58,35 @@
     }
     .subtitle {
       opacity: 0.85;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
       font-size: 1.05rem;
     }
     .cta-card {
       background: var(--card);
       border: 1px solid rgba(0,243,217,0.18);
       border-radius: 16px;
-      padding: 36px 28px;
+      padding: 28px;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .cta-card img {
+      width: 100%;
+      max-width: 640px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
     .cta-card h2 {
       font-family: 'Orbitron', system-ui;
-      font-size: 1.4rem;
-      margin-bottom: 12px;
+      font-size: 1.3rem;
       color: #fff;
     }
     .cta-card p {
       opacity: 0.85;
-      margin-bottom: 24px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 480px;
     }
     .big-btn {
       display: inline-block;
@@ -97,24 +103,62 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(0,243,217,0.25);
     }
-    .section {
-      margin-top: 48px;
-    }
-    .section h3 {
+    h2.section-title {
       font-family: 'Orbitron', system-ui;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       color: var(--neon);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
-    .section p {
-      opacity: 0.8;
-      margin-bottom: 16px;
-    }
-    .note {
+    .section-note {
+      opacity: 0.75;
+      margin-bottom: 24px;
       font-size: 14px;
-      opacity: 0.65;
-      font-style: italic;
     }
+    .creature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+    .creature-card {
+      background: var(--card);
+      border: 1px solid rgba(0,243,217,0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .creature-card:hover {
+      border-color: rgba(0,243,217,0.35);
+      transform: translateY(-3px);
+    }
+    .creature-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      background: #0a0a12;
+    }
+    .creature-info {
+      padding: 12px 14px 16px;
+    }
+    .creature-name {
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .dl-btn {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 8px;
+      background: rgba(0,243,217,0.15);
+      border: 1px solid rgba(0,243,217,0.3);
+      color: var(--neon);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+    .dl-btn:hover { background: rgba(0,243,217,0.25); }
     footer {
       text-align: center;
       padding: 24px;
@@ -139,18 +183,82 @@
 
   <main>
     <h1>Art</h1>
-    <p class="subtitle">Original designs, creature art, and prints available on Redbubble.</p>
+    <p class="subtitle">Original designs, creature art, and prints. Stickers coming soon on Redbubble.</p>
 
     <div class="cta-card">
-      <h2>Shop the Collection</h2>
-      <p>Stickers, prints, apparel, and more featuring the little guys and original artwork.</p>
+      <img src="redbubble-preview.png" alt="JonnyAFK on Redbubble">
+      <h2>Shop on Redbubble</h2>
+      <p>Stickers, prints, apparel, and more. The little guys are heading there shortly.</p>
       <a class="big-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank" rel="noopener">Visit Redbubble Shop →</a>
     </div>
 
-    <div class="section">
-      <h3>The Little Guys</h3>
-      <p>Sticker packs of the desk creatures are coming soon. Designs will live on Redbubble once they’re ready.</p>
-      <p class="note">Placeholder section — drop the sticker images when you have them and I’ll wire them in.</p>
+    <h2 class="section-title">The Little Guys</h2>
+    <p class="section-note">Download high-res PNGs below. Stickers will go live on Redbubble soon — for now the shop link above has everything else.</p>
+
+    <div class="creature-grid">
+      <div class="creature-card">
+        <img src="sticker_blue_happy.png" alt="Blue Happy Bear">
+        <div class="creature-info">
+          <div class="creature-name">Blue Happy</div>
+          <a class="dl-btn" href="sticker_blue_happy.png" download>Download PNG</a>
+        </div>
+      </div>
+      <div class="creature-card">
+        <img src="sticker_blue_sitting.png" alt="Blue Sitting Bear">
+        <div class="creature-info">
+          <div class="creature-name">Blue Sitting</div>
+          <a class="dl-btn" href="sticker_blue_sitting.png" download>Download PNG</a>
+        </div>
+      </div>
+      <div class="creature-card">
+        <img src="sticker_yellow_pencil.png" alt="Yellow Pencil Lizard">
+        <div class="creature-info">
+          <div class="creature-name">Yellow Pencil</div>
+          <a class="dl-btn" href="sticker_yellow_pencil.png" download>Download PNG</a>
+        </div>
+      </div>
+      <div class="creature-card">
+        <img src="sticker_teal_coffee.png" alt="Teal Coffee Cat">
+        <div class="creature-info">
+          <div class="creature-name">Teal Coffee</div>
+          <a class="dl-btn" href="sticker_teal_coffee.png" download>Download PNG</a>
+        </div>
+      </div>
+      <div class="creature-card">
+        <img src="sticker_teal_peeker.png" alt="Teal Peeker">
+        <div class="creature-info">
+          <div class="creature-name">Teal Peeker</div>
+          <a class="dl-btn" href="sticker_teal_peeker.png" download>Download PNG</a>
+        </div>
+      </div>
+      <div class="creature-card">
+        <img src="sticker_orange_cat.png" alt="Orange Cat">
+        <div class="creature-info">
+          <div class="creature-name">Orange Cat</div>
+          <a class="dl-btn" href="sticker_orange_cat.png" download>Download PNG</a>
+        </div>
+      </div>
+      <div class="creature-card">
+        <img src="sticker_orange_grumpy.png" alt="Orange Grumpy">
+        <div class="creature-info">
+          <div class="creature-name">Orange Grumpy</div>
+          <a class="dl-btn" href="sticker_orange_grumpy.png" download>Download PNG</a>
+        </div>
+      </div>
+      <div class="creature-card">
+        <img src="sticker_red_rope.png" alt="Red on Rope">
+        <div class="creature-info">
+          <div class="creature-name">Red on Rope</div>
+          <a class="dl-btn" href="sticker_red_rope.png" download>Download PNG</a>
+        </div>
+      </div>
+      <div class="creature-card">
+        <img src="sticker_red_swing.png" alt="Red Swing">
+        <div class="creature-info">
+          <div class="creature-name">Red Swing</div>
+          <a class="dl-btn" href="sticker_red_swing.png" download>Download PNG</a>
+        </div>
+      </div>
     </div>
   </main>
 

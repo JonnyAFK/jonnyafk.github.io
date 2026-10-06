@@ -65,22 +65,28 @@
       background: var(--card);
       border: 1px solid rgba(0,243,217,0.18);
       border-radius: 16px;
-      padding: 36px 28px;
+      padding: 28px;
       text-align: center;
       margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .cta-card img {
+      width: 100%;
+      max-width: 640px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
     .cta-card h2 {
       font-family: 'Orbitron', system-ui;
-      font-size: 1.4rem;
-      margin-bottom: 12px;
+      font-size: 1.3rem;
       color: #fff;
     }
     .cta-card p {
       opacity: 0.85;
-      margin-bottom: 24px;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 480px;
     }
     .big-btn {
       display: inline-block;
@@ -97,26 +103,11 @@
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(0,243,217,0.25);
     }
-    .grid-placeholder {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .placeholder-card {
-      background: var(--card);
-      border: 1px dashed rgba(0,243,217,0.2);
-      border-radius: 12px;
-      padding: 40px 16px;
-      text-align: center;
-      opacity: 0.6;
-      font-size: 14px;
-    }
     .note {
       font-size: 14px;
       opacity: 0.65;
       font-style: italic;
-      margin-top: 24px;
+      text-align: center;
     }
     footer {
       text-align: center;
@@ -145,17 +136,13 @@
     <p class="subtitle">Stickers, pins, apparel, and more — all powered by Redbubble.</p>
 
     <div class="cta-card">
+      <img src="redbubble-preview.png" alt="JonnyAFK Redbubble shop">
       <h2>Shop Everything</h2>
-      <p>Official JonnyAFK merch lives on Redbubble. New sticker designs of the little guys coming soon.</p>
+      <p>Official JonnyAFK merch lives on Redbubble. Sticker designs of the little guys are coming soon.</p>
       <a class="big-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank" rel="noopener">Go to Redbubble Shop →</a>
     </div>
 
-    <div class="grid-placeholder">
-      <div class="placeholder-card">Sticker drop<br>coming soon</div>
-      <div class="placeholder-card">More merch<br>images soon</div>
-      <div class="placeholder-card">Drop images here<br>and I’ll link them</div>
-    </div>
-    <p class="note">When you send the sticker / merch images, I’ll update this grid so every item links straight to its Redbubble product page.</p>
+    <p class="note">Once the sticker designs are live on Redbubble, this page will get a proper product grid. For now the shop link has it all.</p>
   </main>
 
   <footer>© JonnyAFK — Built with love</footer>
