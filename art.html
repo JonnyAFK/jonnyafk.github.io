@@ -1,16 +1,147 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Art — JonnyAFK</title>
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-  <style>body{margin:0;font-family:Varela Round,system-ui;background:#04040a;color:#bff}header{padding:18px;background:#02020a;display:flex;align-items:center;gap:20px}nav{margin-left:auto}nav a{color:#00eaff;text-decoration:none;margin:0 8px;font-weight:700}main{padding:36px}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Music — JonnyAFK</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neon: #00f3d9;
+      --neon-2: #0ea5ff;
+      --bg: #04040a;
+      --card: rgba(255,255,255,0.04);
+      --text: #e8f4ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Varela Round', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    header {
+      background: #02020a;
+      border-bottom: 1px solid rgba(0,243,217,0.12);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header img { height: 52px; }
+    nav { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+    nav a {
+      color: var(--neon);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    nav a:hover, nav a.active { background: rgba(0,243,217,0.12); }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    h1 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 2.2rem;
+      color: var(--neon);
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      opacity: 0.85;
+      margin-bottom: 32px;
+      font-size: 1.05rem;
+    }
+    .platform-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .platform-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(14,165,255,0.2), rgba(0,243,217,0.15));
+      border: 1px solid rgba(0,243,217,0.25);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .platform-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,243,217,0.2);
+    }
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .album-card {
+      background: var(--card);
+      border: 1px solid rgba(0,243,217,0.1);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .album-card:hover {
+      border-color: rgba(0,243,217,0.35);
+      transform: translateY(-3px);
+    }
+    .album-title {
+      font-family: 'Orbitron', system-ui;
+      font-size: 1.05rem;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+    .album-meta {
+      font-size: 13px;
+      opacity: 0.7;
+    }
+    .buy-btn {
+      margin-top: auto;
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #0ea5ff, #00f3d9);
+      color: #001;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 13px;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+    .buy-btn:hover { opacity: 0.9; }
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      opacity: 0.6;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
 </head>
 <body>
   <header>
-    <a href="index.html"><img src="JonnyAFK_logo.png" alt="logo" style="height:48px"></a>
+    <a href="index.html"><img src="JonnyAFK Clear Background.png" alt="JonnyAFK"></a>
     <nav>
-      <a href="music.html">Music</a>
+      <a href="music.html" class="active">Music</a>
       <a href="art.html">Art</a>
       <a href="merch.html">Merch</a>
       <a href="apps.html">Apps</a>
@@ -18,9 +149,275 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
+  <main>
+    <h1>Music</h1>
+    <p class="subtitle">Stream or buy every release. All albums available on Apple Music.</p>
+
+    <div class="platform-links">
+      <a class="platform-btn" href="https://music.apple.com/us/artist/jonnyafk/1834073714" target="_blank" rel="noopener">Apple Music Artist</a>
+      <a class="platform-btn" href="https://open.spotify.com/artist/2aExNGy3Uyp7LHldYoK8T5" target="_blank" rel="noopener">Spotify</a>
+      <a class="platform-btn" href="https://youtube.com/@JonnyAFK" target="_blank" rel="noopener">YouTube</a>
+      <a class="platform-btn" href="https://music.youtube.com/search?q=jonnyafk" target="_blank" rel="noopener">YouTube Music</a>
+    </div>
+
+    <div class="album-grid">
+      <div class="album-card">
+        <div class="album-title">Songs from the Heart</div>
+        <div class="album-meta">Album · 2026</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/songs-from-the-heart/1894142461" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Chunkified!</div>
+        <div class="album-meta">Album · 2026</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/chunkified/1893426410" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Ritmo Anarquic</div>
+        <div class="album-meta">Album · 2026</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/ritmo-anarquic/1873022901" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Transcendant EDM</div>
+        <div class="album-meta">Single · 2026</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/transcendant-edm/6777005065" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Bluegrass Orchestra – A Christmas Album</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-a-christmas-album/1860460166" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">8-Bit Orchestra – A Christmas Album</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-a-christmas-album/1860441584" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Calls of the Wind</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/calls-of-the-wind/1845832820" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">I Dream in Green</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/i-dream-in-green/1845701553" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Light and Salt</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/light-and-salt/1845671285" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Songs for the End of the World</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/songs-for-the-end-of-the-world/1845929542" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Satisfaction Guaranteed</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/satisfaction-guaranteed/1842725861" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Murder on Maple Lane</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/murder-on-maple-lane/1842592276" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">8-Bit Orchestra, Vol. 3</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-vol-3/1842672673" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Bluegrass Orchestra, Vol. 3</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-vol-3/1836595381" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Bluegrass Orchestra, Vol. 2</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-vol-2/1836632076" target="_blank" r<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Art — JonnyAFK</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neon: #00f3d9;
+      --neon-2: #0ea5ff;
+      --bg: #04040a;
+      --card: rgba(255,255,255,0.04);
+      --text: #e8f4ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Varela Round', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    header {
+      background: #02020a;
+      border-bottom: 1px solid rgba(0,243,217,0.12);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header img { height: 52px; }
+    nav { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+    nav a {
+      color: var(--neon);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    nav a:hover, nav a.active { background: rgba(0,243,217,0.12); }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    h1 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 2.2rem;
+      color: var(--neon);
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      opacity: 0.85;
+      margin-bottom: 36px;
+      font-size: 1.05rem;
+    }
+    .cta-card {
+      background: var(--card);
+      border: 1px solid rgba(0,243,217,0.18);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .cta-card h2 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .cta-card p {
+      opacity: 0.85;
+      margin-bottom: 24px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .big-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0ea5ff, #00f3d9);
+      color: #001;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .big-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,243,217,0.25);
+    }
+    .section {
+      margin-top: 48px;
+    }
+    .section h3 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 1.15rem;
+      color: var(--neon);
+      margin-bottom: 12px;
+    }
+    .section p {
+      opacity: 0.8;
+      margin-bottom: 16px;
+    }
+    .note {
+      font-size: 14px;
+      opacity: 0.65;
+      font-style: italic;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      opacity: 0.6;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="JonnyAFK Clear Background.png" alt="JonnyAFK"></a>
+    <nav>
+      <a href="music.html">Music</a>
+      <a href="art.html" class="active">Art</a>
+      <a href="merch.html">Merch</a>
+      <a href="apps.html">Apps</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
   <main>
     <h1>Art</h1>
-    <p>Placeholder for art portfolio, galleries, and downloadable assets.</p>
+    <p class="subtitle">Original designs, creature art, and prints available on Redbubble.</p>
+
+    <div class="cta-card">
+      <h2>Shop the Collection</h2>
+      <p>Stickers, prints, apparel, and more featuring the little guys and original artwork.</p>
+      <a class="big-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank" rel="noopener">Visit Redbubble Shop →</a>
+    </div>
+
+    <div class="section">
+      <h3>The Little Guys</h3>
+      <p>Sticker packs of the desk creatures are coming soon. Designs will live on Redbubble once they’re ready.</p>
+      <p class="note">Placeholder section — drop the sticker images when you have them and I’ll wire them in.</p>
+    </div>
   </main>
+
+  <footer>© JonnyAFK — Built with love</footer>
+</body>
+</html>el="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">Bluegrass Orchestra</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra/1835288284" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">8-Bit Orchestra, Vol. 2</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-vol-2/1834252663" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">The Fold</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/the-fold/1834251450" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+      <div class="album-card">
+        <div class="album-title">8-Bit Orchestra</div>
+        <div class="album-meta">Album · 2025</div>
+        <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra/1834268732" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>© JonnyAFK — Built with love</footer>
 </body>
 </html>

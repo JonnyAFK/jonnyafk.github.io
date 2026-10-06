@@ -1,26 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>About — JonnyAFK</title>
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-  <style>body{margin:0;font-family:Varela Round,system-ui;background:#04040a;color:#bff}header{padding:18px;background:#02020a;display:flex;align-items:center;gap:20px}nav{margin-left:auto}nav a{color:#00eaff;text-decoration:none;margin:0 8px;font-weight:700}main{padding:36px;max-width:900px;margin:0 auto}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neon: #00f3d9;
+      --neon-2: #0ea5ff;
+      --bg: #04040a;
+      --card: rgba(255,255,255,0.04);
+      --text: #e8f4ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Varela Round', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    header {
+      background: #02020a;
+      border-bottom: 1px solid rgba(0,243,217,0.12);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header img { height: 52px; }
+    nav { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+    nav a {
+      color: var(--neon);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    nav a:hover, nav a.active { background: rgba(0,243,217,0.12); }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    h1 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 2.2rem;
+      color: var(--neon);
+      letter-spacing: 0.06em;
+      margin-bottom: 24px;
+    }
+    p {
+      margin-bottom: 18px;
+      opacity: 0.9;
+    }
+    .highlight {
+      color: var(--neon);
+      font-weight: 700;
+    }
+    .section {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .section h2 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 1.15rem;
+      color: var(--neon);
+      margin-bottom: 12px;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      opacity: 0.6;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
 </head>
 <body>
   <header>
-    <a href="index.html"><img src="JonnyAFK_logo.png" alt="logo" style="height:48px"></a>
+    <a href="index.html"><img src="JonnyAFK Clear Background.png" alt="JonnyAFK"></a>
     <nav>
       <a href="music.html">Music</a>
       <a href="art.html">Art</a>
       <a href="merch.html">Merch</a>
       <a href="apps.html">Apps</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
   <main>
     <h1>About JonnyAFK</h1>
-    <p>Short bio and background. Replace this with your story, press kit, and links to high-resolution images.</p>
+
+    <p>
+      Hey — I’m Jonny. Christian content creator, musician, artist, and builder of weird and useful little apps.
+    </p>
+
+    <p>
+      I make music across a bunch of styles (bluegrass orchestra, 8-bit, worship, EDM, and whatever else sounds fun that week), create art in different mediums, stream video games, and ship side projects when an idea won’t leave me alone.
+    </p>
+
+    <p>
+      Before all of this I was a <span class="highlight">Navy Nuke</span>. That background still shows up in how I approach systems, problem-solving, and building things that actually work.
+    </p>
+
+    <div class="section">
+      <h2>What you’ll find here</h2>
+      <p>
+        This site is the central hub for everything: music releases, art & merch, the apps I’ve built, and ways to connect. No fluff — just the stuff I’m actually making.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Quick facts</h2>
+      <p>
+        • Christian content creator<br>
+        • Music, art, streaming, and AI-powered tools<br>
+        • Former Navy nuclear propulsion operator<br>
+        • Builds apps with Base44 and a lot of coffee
+      </p>
+    </div>
+
+    <p style="margin-top: 36px; opacity: 0.7; font-size: 14px;">
+      (This page is a starting point — feel free to edit the text anytime.)
+    </p>
   </main>
+
+  <footer>© JonnyAFK — Built with love</footer>
 </body>
 </html>

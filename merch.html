@@ -1,26 +1,163 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Merch — JonnyAFK</title>
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-  <style>body{margin:0;font-family:Varela Round,system-ui;background:#04040a;color:#bff}header{padding:18px;background:#02020a;display:flex;align-items:center;gap:20px}nav{margin-left:auto}nav a{color:#00eaff;text-decoration:none;margin:0 8px;font-weight:700}main{padding:36px}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neon: #00f3d9;
+      --neon-2: #0ea5ff;
+      --bg: #04040a;
+      --card: rgba(255,255,255,0.04);
+      --text: #e8f4ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Varela Round', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    header {
+      background: #02020a;
+      border-bottom: 1px solid rgba(0,243,217,0.12);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header img { height: 52px; }
+    nav { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+    nav a {
+      color: var(--neon);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    nav a:hover, nav a.active { background: rgba(0,243,217,0.12); }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    h1 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 2.2rem;
+      color: var(--neon);
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      opacity: 0.85;
+      margin-bottom: 36px;
+      font-size: 1.05rem;
+    }
+    .cta-card {
+      background: var(--card);
+      border: 1px solid rgba(0,243,217,0.18);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .cta-card h2 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .cta-card p {
+      opacity: 0.85;
+      margin-bottom: 24px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .big-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0ea5ff, #00f3d9);
+      color: #001;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .big-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,243,217,0.25);
+    }
+    .grid-placeholder {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .placeholder-card {
+      background: var(--card);
+      border: 1px dashed rgba(0,243,217,0.2);
+      border-radius: 12px;
+      padding: 40px 16px;
+      text-align: center;
+      opacity: 0.6;
+      font-size: 14px;
+    }
+    .note {
+      font-size: 14px;
+      opacity: 0.65;
+      font-style: italic;
+      margin-top: 24px;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      opacity: 0.6;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
 </head>
 <body>
   <header>
-    <a href="index.html"><img src="JonnyAFK_logo.png" alt="logo" style="height:48px"></a>
+    <a href="index.html"><img src="JonnyAFK Clear Background.png" alt="JonnyAFK"></a>
     <nav>
       <a href="music.html">Music</a>
       <a href="art.html">Art</a>
-      <a href="merch.html">Merch</a>
+      <a href="merch.html" class="active">Merch</a>
       <a href="apps.html">Apps</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+
   <main>
     <h1>Merch</h1>
-    <p>Placeholder for merch store links (Shopify/Teespring/etc). Add product embeds here.</p>
+    <p class="subtitle">Stickers, pins, apparel, and more — all powered by Redbubble.</p>
+
+    <div class="cta-card">
+      <h2>Shop Everything</h2>
+      <p>Official JonnyAFK merch lives on Redbubble. New sticker designs of the little guys coming soon.</p>
+      <a class="big-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank" rel="noopener">Go to Redbubble Shop →</a>
+    </div>
+
+    <div class="grid-placeholder">
+      <div class="placeholder-card">Sticker drop<br>coming soon</div>
+      <div class="placeholder-card">More merch<br>images soon</div>
+      <div class="placeholder-card">Drop images here<br>and I’ll link them</div>
+    </div>
+    <p class="note">When you send the sticker / merch images, I’ll update this grid so every item links straight to its Redbubble product page.</p>
   </main>
+
+  <footer>© JonnyAFK — Built with love</footer>
 </body>
 </html>

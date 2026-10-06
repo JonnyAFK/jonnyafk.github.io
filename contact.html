@@ -1,35 +1,145 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Contact — JonnyAFK</title>
-  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-  <style>body{margin:0;font-family:Varela Round,system-ui;background:#04040a;color:#bff}header{padding:18px;background:#02020a;display:flex;align-items:center;gap:20px}nav{margin-left:auto}nav a{color:#00eaff;text-decoration:none;margin:0 8px;font-weight:700}main{padding:36px;max-width:700px;margin:0 auto}form label{display:block;margin:8px 0}input,textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #222;background:#071126;color:#bff}</style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --neon: #00f3d9;
+      --neon-2: #0ea5ff;
+      --bg: #04040a;
+      --card: rgba(255,255,255,0.04);
+      --text: #e8f4ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Varela Round', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+    header {
+      background: #02020a;
+      border-bottom: 1px solid rgba(0,243,217,0.12);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    header img { height: 52px; }
+    nav { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+    nav a {
+      color: var(--neon);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    nav a:hover, nav a.active { background: rgba(0,243,217,0.12); }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    h1 {
+      font-family: 'Orbitron', system-ui;
+      font-size: 2.2rem;
+      color: var(--neon);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      opacity: 0.85;
+      margin-bottom: 36px;
+    }
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card);
+      border: 1px solid rgba(0,243,217,0.12);
+      border-radius: 12px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-item:hover {
+      border-color: rgba(0,243,217,0.35);
+      transform: translateY(-2px);
+    }
+    .contact-label {
+      font-weight: 700;
+      color: var(--neon);
+      min-width: 90px;
+    }
+    .contact-value {
+      opacity: 0.9;
+      word-break: break-all;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      opacity: 0.6;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
 </head>
 <body>
   <header>
-    <a href="index.html"><img src="JonnyAFK_logo.png" alt="logo" style="height:48px"></a>
+    <a href="index.html"><img src="JonnyAFK Clear Background.png" alt="JonnyAFK"></a>
     <nav>
       <a href="music.html">Music</a>
       <a href="art.html">Art</a>
       <a href="merch.html">Merch</a>
       <a href="apps.html">Apps</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
+
   <main>
     <h1>Contact</h1>
-    <p>Send booking or collaboration requests to <a href="mailto:jonnyafk@hotmail.com">jonnyafk@hotmail.com</a>.</p>
-    <form action="#" method="post">
-      <label>Name</label>
-      <input type="text" name="name">
-      <label>Email</label>
-      <input type="email" name="email">
-      <label>Message</label>
-      <textarea name="message" rows="6"></textarea>
-      <div style="margin-top:10px"><button type="submit" style="padding:10px 16px;background:#00eaff;border:none;border-radius:8px;color:#001">Send</button></div>
-    </form>
+    <p class="subtitle">Reach out however is easiest for you.</p>
+
+    <div class="contact-list">
+      <a class="contact-item" href="mailto:jonnyafk@hotmail.com">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">jonnyafk@hotmail.com</span>
+      </a>
+      <a class="contact-item" href="https://www.facebook.com/jonnyafk" target="_blank" rel="noopener">
+        <span class="contact-label">Facebook</span>
+        <span class="contact-value">facebook.com/jonnyafk</span>
+      </a>
+      <a class="contact-item" href="https://www.instagram.com/jonny_afk" target="_blank" rel="noopener">
+        <span class="contact-label">Instagram</span>
+        <span class="contact-value">@jonny_afk</span>
+      </a>
+      <a class="contact-item" href="https://www.tiktok.com/@jonny_afk0" target="_blank" rel="noopener">
+        <span class="contact-label">TikTok</span>
+        <span class="contact-value">@jonny_afk0</span>
+      </a>
+      <a class="contact-item" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener">
+        <span class="contact-label">Discord</span>
+        <span class="contact-value">Join the server</span>
+      </a>
+    </div>
   </main>
+
+  <footer>© JonnyAFK — Built with love</footer>
 </body>
 </html>
