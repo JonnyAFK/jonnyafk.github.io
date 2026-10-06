@@ -87,43 +87,57 @@
     }
     .album-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
     }
     .album-card {
       background: var(--card);
       border: 1px solid rgba(0,243,217,0.1);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 14px;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      gap: 12px;
       transition: border-color 0.2s, transform 0.2s;
     }
     .album-card:hover {
       border-color: rgba(0,243,217,0.35);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
+    }
+    .album-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      background: #111;
+    }
+    .album-info {
+      padding: 14px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
     }
     .album-title {
       font-family: 'Orbitron', system-ui;
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       color: #fff;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
     }
     .album-meta {
-      font-size: 13px;
-      opacity: 0.7;
+      font-size: 12px;
+      opacity: 0.65;
     }
     .buy-btn {
       margin-top: auto;
-      display: inline-block;
-      padding: 10px 16px;
+      display: block;
+      padding: 9px 14px;
       border-radius: 8px;
       background: linear-gradient(90deg, #0ea5ff, #00f3d9);
       color: #001;
       text-decoration: none;
       font-weight: 800;
-      font-size: 13px;
+      font-size: 12px;
       text-align: center;
       transition: opacity 0.2s;
     }
@@ -163,99 +177,156 @@
 
     <div class="album-grid">
       <div class="album-card">
-        <div class="album-title">Songs from the Heart</div>
-        <div class="album-meta">Album · 2026</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/songs-from-the-heart/1894142461" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/37/e8/f0/37e8f059-d0fd-ece8-b20a-9382677b96c8/artwork.jpg/600x600bf-60.jpg" alt="Songs from the Heart" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Songs from the Heart</div>
+          <div class="album-meta">Album · 2026</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/songs-from-the-heart/1894142461" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Chunkified!</div>
-        <div class="album-meta">Album · 2026</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/chunkified/1893426410" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/12/11/88/1211886c-aaa4-7a1a-09ed-01bdbe139d96/artwork.jpg/600x600bf-60.jpg" alt="Chunkified!" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Chunkified!</div>
+          <div class="album-meta">Album · 2026</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/chunkified/1893426410" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Ritmo Anarquic</div>
-        <div class="album-meta">Album · 2026</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/ritmo-anarquic/1873022901" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/94/39/45/943945a1-af5a-5103-17ac-22bbded53321/artwork.jpg/600x600bf-60.jpg" alt="Ritmo Anarquic" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Ritmo Anarquic</div>
+          <div class="album-meta">Album · 2026</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/ritmo-anarquic/1873022901" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Transcendant EDM</div>
-        <div class="album-meta">Single · 2026</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/transcendant-edm/6777005065" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fe/9b/1f/fe9b1fcc-7d36-8602-fc91-a58567e54d42/artwork.jpg/600x600bf-60.jpg" alt="Transcendant EDM" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Transcendant EDM</div>
+          <div class="album-meta">Single · 2026</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/transcendant-edm/6777005065" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Bluegrass Orchestra – A Christmas Album</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-a-christmas-album/1860460166" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a1/1f/a1/a11fa194-b861-1365-292e-b6572581000f/artwork.jpg/600x600bf-60.jpg" alt="Bluegrass Orchestra Christmas" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Bluegrass Orchestra – A Christmas Album</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-a-christmas-album/1860460166" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">8-Bit Orchestra – A Christmas Album</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-a-christmas-album/1860441584" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/87/fe/b1/87feb17e-1405-25b4-caa4-2d76e0c3675a/artwork.jpg/600x600bf-60.jpg" alt="8-Bit Orchestra Christmas" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">8-Bit Orchestra – A Christmas Album</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-a-christmas-album/1860441584" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Calls of the Wind</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/calls-of-the-wind/1845832820" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fb/93/ee/fb93ee62-9a8f-19af-893a-685e88e18d64/artwork.jpg/600x600bf-60.jpg" alt="Calls of the Wind" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Calls of the Wind</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/calls-of-the-wind/1845832820" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">I Dream in Green</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/i-dream-in-green/1845701553" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/73/b1/6f/73b16fc9-d69d-6dac-c593-5dd331c6011f/artwork.jpg/600x600bf-60.jpg" alt="I Dream in Green" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">I Dream in Green</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/i-dream-in-green/1845701553" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Light and Salt</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/light-and-salt/1845671285" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b0/7d/e9/b07de9bb-c928-d473-bbec-344539a2b595/artwork.jpg/600x600bf-60.jpg" alt="Light and Salt" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Light and Salt</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/light-and-salt/1845671285" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Songs for the End of the World</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/songs-for-the-end-of-the-world/1845929542" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/24/da/bd/24dabdb4-6e11-78a6-2b60-8850cf59a3da/artwork.jpg/600x600bf-60.jpg" alt="Songs for the End of the World" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Songs for the End of the World</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/songs-for-the-end-of-the-world/1845929542" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Satisfaction Guaranteed</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/satisfaction-guaranteed/1842725861" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fe/15/d6/fe15d661-5bb4-2b1c-2354-806a71a37744/artwork.jpg/600x600bf-60.jpg" alt="Satisfaction Guaranteed" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Satisfaction Guaranteed</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/satisfaction-guaranteed/1842725861" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Murder on Maple Lane</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/murder-on-maple-lane/1842592276" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/24/47/40/2447403a-ca77-db19-eff2-0b6058973e85/artwork.jpg/600x600bf-60.jpg" alt="Murder on Maple Lane" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Murder on Maple Lane</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/murder-on-maple-lane/1842592276" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">8-Bit Orchestra, Vol. 3</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-vol-3/1842672673" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b6/e4/65/b6e465a7-4fc1-d677-4fc6-f230a5c66ffb/artwork.jpg/600x600bf-60.jpg" alt="8-Bit Orchestra Vol 3" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">8-Bit Orchestra, Vol. 3</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-vol-3/1842672673" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Bluegrass Orchestra, Vol. 3</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-vol-3/1836595381" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/50/e9/8b/50e98bb5-08f6-1840-a2ef-dbb30784be99/artwork.jpg/600x600bf-60.jpg" alt="Bluegrass Orchestra Vol 3" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Bluegrass Orchestra, Vol. 3</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-vol-3/1836595381" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Bluegrass Orchestra, Vol. 2</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-vol-2/1836632076" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f0/05/95/f0059572-a491-d749-da77-818d316ef6dc/artwork.jpg/600x600bf-60.jpg" alt="Bluegrass Orchestra Vol 2" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Bluegrass Orchestra, Vol. 2</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra-vol-2/1836632076" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">Bluegrass Orchestra</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra/1835288284" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b5/29/8b/b5298ba5-309e-d489-13fd-90be60bbac0b/artwork.jpg/600x600bf-60.jpg" alt="Bluegrass Orchestra" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">Bluegrass Orchestra</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/bluegrass-orchestra/1835288284" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">8-Bit Orchestra, Vol. 2</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-vol-2/1834252663" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3e/0c/a8/3e0ca8ff-169c-5456-fd1a-4c58f35dae44/artwork.jpg/600x600bf-60.jpg" alt="8-Bit Orchestra Vol 2" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">8-Bit Orchestra, Vol. 2</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra-vol-2/1834252663" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">The Fold</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/the-fold/1834251450" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d5/cf/73/d5cf7314-544e-adb4-ab82-422f04639d4a/artwork.jpg/600x600bf-60.jpg" alt="The Fold" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">The Fold</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/the-fold/1834251450" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
       <div class="album-card">
-        <div class="album-title">8-Bit Orchestra</div>
-        <div class="album-meta">Album · 2025</div>
-        <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra/1834268732" target="_blank" rel="noopener">Buy / Stream on Apple Music</a>
+        <img src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bf/94/b1/bf94b1af-dbd4-94d1-5135-e818c05ee188/artwork.jpg/600x600bf-60.jpg" alt="8-Bit Orchestra" loading="lazy">
+        <div class="album-info">
+          <div class="album-title">8-Bit Orchestra</div>
+          <div class="album-meta">Album · 2025</div>
+          <a class="buy-btn" href="https://music.apple.com/us/album/8-bit-orchestra/1834268732" target="_blank" rel="noopener">Buy / Stream</a>
+        </div>
       </div>
     </div>
   </main>
