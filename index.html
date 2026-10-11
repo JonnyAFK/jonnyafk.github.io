@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>JonnyAFK — Christian Music, Art &amp; Apps by Jon Stevers</title>
-    <meta name="description" content="JonnyAFK is the hub for Jon Stevers, a Christian music creator: original music, art, merch, apps, and the JonnyAFK Discord community — all in one place.">
+    <meta name="description" content="Custom songs written just for you by Christian music creator Jon Stevers (JonnyAFK) — for birthdays, anniversaries and proposals. Plus original music, art, merch, apps and the JonnyAFK Discord.">
     <link rel="canonical" href="https://jonnyafk.github.io/">
     <link rel="icon" href="favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="JonnyAFK">
     <meta property="og:title" content="JonnyAFK — Christian Music, Art &amp; Apps by Jon Stevers">
-    <meta property="og:description" content="JonnyAFK is the hub for Jon Stevers, a Christian music creator: original music, art, merch, apps, and the JonnyAFK Discord community — all in one place.">
+    <meta property="og:description" content="Custom songs written just for you by Christian music creator Jon Stevers (JonnyAFK) — for birthdays, anniversaries and proposals. Plus original music, art, merch, apps and the JonnyAFK Discord.">
     <meta property="og:url" content="https://jonnyafk.github.io/">
     <meta property="og:image" content="https://jonnyafk.github.io/assets/img/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -21,7 +21,7 @@
     <meta property="og:image:alt" content="JonnyAFK — Music · Art · Shenanigans">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="JonnyAFK — Christian Music, Art &amp; Apps by Jon Stevers">
-    <meta name="twitter:description" content="JonnyAFK is the hub for Jon Stevers, a Christian music creator: original music, art, merch, apps, and the JonnyAFK Discord community — all in one place.">
+    <meta name="twitter:description" content="Custom songs written just for you by Christian music creator Jon Stevers (JonnyAFK) — for birthdays, anniversaries and proposals. Plus original music, art, merch, apps and the JonnyAFK Discord.">
     <meta name="twitter:image" content="https://jonnyafk.github.io/assets/img/og-image.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -317,7 +317,7 @@
            title/navigation block in the hero is intentionally hidden.
         */
         html, body{
-            height:100%;
+            height:auto;
             min-height:100%;
             overflow-x:hidden;
         }
@@ -423,9 +423,146 @@
         #volToggleBtn.vol-on .vol-icon-off{ display:none; }
         #volToggleBtn:hover .vol-icon{ filter:drop-shadow(0 0 6px var(--neon)); transform:scale(1.08); }
 
+
+        /* ===== Custom song section (top of homepage) ===== */
+        .song-hero{
+            position:relative;
+            z-index:70; /* above the decorative gears */
+            padding:56px 24px 40px;
+            text-align:center;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(0,243,217,0.10), transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(14,165,255,0.08), transparent 65%);
+            border-bottom:1px solid rgba(0,243,217,0.08);
+        }
+        .song-hero-inner{ max-width:1120px; margin:0 auto; }
+        .song-title{
+            font-family:'Orbitron',system-ui;
+            font-size:clamp(28px, 4.4vw, 54px);
+            line-height:1.15;
+            letter-spacing:0.04em;
+            color:var(--neon);
+            margin:0 0 16px;
+            text-shadow:0 0 18px rgba(0,243,217,0.45), 0 0 42px rgba(0,170,255,0.25);
+        }
+        .song-sub{
+            max-width:720px;
+            margin:0 auto 36px;
+            font-size:clamp(16px, 1.6vw, 20px);
+            line-height:1.55;
+            color:#dbe9ff;
+            opacity:0.95;
+        }
+        .tiers{
+            display:grid;
+            grid-template-columns:repeat(3, minmax(0, 1fr));
+            gap:22px;
+            align-items:stretch;
+            margin:0 auto 36px;
+        }
+        .tier{
+            position:relative;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:10px;
+            padding:30px 22px 26px;
+            border-radius:16px;
+            background:linear-gradient(180deg, rgba(10,14,40,0.92), rgba(4,5,18,0.92));
+            border:1px solid rgba(0,243,217,0.22);
+            box-shadow:0 10px 40px rgba(0,0,0,0.55), inset 0 0 24px rgba(0,243,217,0.04);
+            color:#f5f7ff;
+            text-decoration:none;
+            transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        .tier:hover, .tier:focus-visible{
+            transform:translateY(-4px);
+            border-color:rgba(0,243,217,0.6);
+            box-shadow:0 16px 50px rgba(0,170,255,0.18), 0 0 0 1px rgba(0,243,217,0.25);
+            outline:none;
+        }
+        .tier-name{
+            font-family:'Orbitron',system-ui;
+            font-weight:700;
+            font-size:18px;
+            letter-spacing:0.04em;
+            color:#fff;
+        }
+        .tier-price{
+            font-family:'Orbitron',system-ui;
+            font-weight:700;
+            font-size:40px;
+            color:var(--neon);
+            text-shadow:0 0 14px rgba(0,243,217,0.4);
+            line-height:1.1;
+        }
+        .tier-desc{
+            font-size:15px;
+            line-height:1.5;
+            opacity:0.88;
+            max-width:260px;
+        }
+        .tier.featured{
+            border:1px solid rgba(0,243,217,0.75);
+            background:linear-gradient(180deg, rgba(0,60,80,0.55), rgba(4,5,18,0.95));
+            box-shadow:0 14px 60px rgba(0,243,217,0.18), 0 0 0 1px rgba(14,165,255,0.35);
+            transform:translateY(-8px);
+        }
+        .tier.featured:hover, .tier.featured:focus-visible{ transform:translateY(-12px); }
+        .tier-badge{
+            position:absolute;
+            top:-13px;
+            left:50%;
+            transform:translateX(-50%);
+            padding:5px 14px;
+            border-radius:999px;
+            background:linear-gradient(90deg,var(--accent-blue),var(--neon));
+            color:#001;
+            font-size:12px;
+            font-weight:800;
+            letter-spacing:0.06em;
+            text-transform:uppercase;
+            white-space:nowrap;
+            box-shadow:0 6px 20px rgba(0,243,217,0.3);
+        }
+        .song-cta{
+            display:inline-block;
+            padding:18px 38px;
+            border-radius:999px;
+            background:linear-gradient(90deg,var(--accent-blue),var(--neon));
+            color:#001;
+            font-weight:800;
+            font-size:18px;
+            letter-spacing:0.02em;
+            text-decoration:none;
+            box-shadow:0 10px 40px rgba(14,165,255,0.3);
+            border:1px solid rgba(255,255,255,0.1);
+            transition:transform .2s ease, box-shadow .2s ease;
+        }
+        .song-cta:hover, .song-cta:focus-visible{
+            transform:translateY(-3px) scale(1.02);
+            box-shadow:0 16px 54px rgba(0,243,217,0.4);
+        }
+        .song-note{
+            margin:14px 0 0;
+            font-size:14px;
+            color:#bcd;
+            opacity:0.9;
+        }
+        @media (max-width:900px){
+            .tiers{ grid-template-columns:1fr; max-width:440px; gap:26px; }
+            .tier.featured, .tier.featured:hover, .tier.featured:focus-visible{ transform:none; }
+        }
+        @media (max-width:600px){
+            .song-hero{ padding:32px 16px 28px; }
+            .song-sub{ margin-bottom:28px; }
+            .tier{ padding:24px 18px 20px; }
+            .tier-price{ font-size:34px; }
+            .song-cta{ display:block; padding:16px 20px; font-size:17px; }
+        }
+
         /* ===== Phones ===== */
         @media (max-width:600px){
-            html, body{ height:auto; }
             .site-header .header-inner{
                 flex-direction:column;
                 gap:8px;
@@ -481,23 +618,39 @@
         </div>
     </header>
 
+    <section class="song-hero" id="custom-song" aria-labelledby="songTitle">
+        <div class="song-hero-inner">
+            <h1 class="song-title" id="songTitle">A song written just for them.</h1>
+            <p class="song-sub">Birthdays, anniversaries, proposals, inside jokes. Tell me your story, and I'll turn it into a real, professionally produced song.</p>
+
+            <div class="tiers">
+                <a class="tier" href="https://your-song-maker.base44.app">
+                    <span class="tier-name">Personal Song Lite</span>
+                    <span class="tier-price">$50</span>
+                    <span class="tier-desc">60 to 90 seconds, ready in 3 to 5 days.</span>
+                </a>
+                <a class="tier featured" href="https://your-song-maker.base44.app">
+                    <span class="tier-badge">Most popular</span>
+                    <span class="tier-name">Full Custom Song</span>
+                    <span class="tier-price">$125</span>
+                    <span class="tier-desc">2 to 3 minutes with a full arrangement, ready in 5 to 7 days.</span>
+                </a>
+                <a class="tier" href="https://your-song-maker.base44.app">
+                    <span class="tier-name">Premium Story Song</span>
+                    <span class="tier-price">$250</span>
+                    <span class="tier-desc">3 to 4 minutes with deeper lyrics, ready in 7 to 10 days.</span>
+                </a>
+            </div>
+
+            <a class="song-cta" href="https://your-song-maker.base44.app">Get your song started</a>
+            <p class="song-note">Ordering for Christmas? Get your order in by Dec 10.</p>
+        </div>
+    </section>
+
     <main class="hero" id="hero">
         <div class="overlay" aria-hidden="true"></div>
 
         <div class="center">
-            <div class="left">
-                <h1 class="site-title">JonnyAFK</h1>
-                <div class="tag">Music · Art · Merch · Apps — All in one hub</div>
-                <div class="buttons" id="navButtons">
-                    <button class="btn" data-link="music.html"><span class="label">Music</span><span class="glow"></span></button>
-                    <button class="btn" data-link="art.html"><span class="label">Art</span><span class="glow"></span></button>
-                    <button class="btn" data-link="merch.html"><span class="label">Merch</span><span class="glow"></span></button>
-                    <button class="btn" data-link="apps.html"><span class="label">Apps</span><span class="glow"></span></button>
-                    <button class="btn" data-link="about.html"><span class="label">About</span><span class="glow"></span></button>
-                    <button class="btn" data-link="contact.html"><span class="label">Contact</span><span class="glow"></span></button>
-                </div>
-            </div>
-
             <aside class="card">
                 <div class="media-frame" id="mediaFrame">
                     <!-- Static poster (sits under the looping video; was a second copy of the 20 MB video) -->
