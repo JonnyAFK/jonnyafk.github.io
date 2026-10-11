@@ -3,7 +3,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>JonnyAFK — Hub</title>
+    <title>JonnyAFK — Christian Music, Art &amp; Apps by Jon Stevers</title>
+    <meta name="description" content="Custom songs written just for you by Christian music creator Jon Stevers (JonnyAFK) — for birthdays, anniversaries and proposals. Plus original music, art, merch, apps and the JonnyAFK Discord.">
+    <link rel="canonical" href="https://jonnyafk.github.io/">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#050617">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="JonnyAFK">
+    <meta property="og:title" content="JonnyAFK — Christian Music, Art &amp; Apps by Jon Stevers">
+    <meta property="og:description" content="Custom songs written just for you by Christian music creator Jon Stevers (JonnyAFK) — for birthdays, anniversaries and proposals. Plus original music, art, merch, apps and the JonnyAFK Discord.">
+    <meta property="og:url" content="https://jonnyafk.github.io/">
+    <meta property="og:image" content="https://jonnyafk.github.io/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="JonnyAFK — Music · Art · Shenanigans">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JonnyAFK — Christian Music, Art &amp; Apps by Jon Stevers">
+    <meta name="twitter:description" content="Custom songs written just for you by Christian music creator Jon Stevers (JonnyAFK) — for birthdays, anniversaries and proposals. Plus original music, art, merch, apps and the JonnyAFK Discord.">
+    <meta name="twitter:image" content="https://jonnyafk.github.io/assets/img/og-image.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <style>
@@ -298,7 +317,7 @@
            title/navigation block in the hero is intentionally hidden.
         */
         html, body{
-            height:100%;
+            height:auto;
             min-height:100%;
             overflow-x:hidden;
         }
@@ -397,13 +416,186 @@
             z-index: 0 !important;
         }
 
+        /* volume icon (inline SVG) */
+        #volToggleBtn{ color:var(--neon); }
+        #volToggleBtn .vol-icon{ display:block; transition:filter .2s ease, transform .2s ease; }
+        #volToggleBtn.vol-off .vol-icon-on,
+        #volToggleBtn.vol-on .vol-icon-off{ display:none; }
+        #volToggleBtn:hover .vol-icon{ filter:drop-shadow(0 0 6px var(--neon)); transform:scale(1.08); }
+
+
+        /* ===== Custom song section (top of homepage) ===== */
+        .song-hero{
+            position:relative;
+            z-index:70; /* above the decorative gears */
+            padding:56px 24px 40px;
+            text-align:center;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(0,243,217,0.10), transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(14,165,255,0.08), transparent 65%);
+            border-bottom:1px solid rgba(0,243,217,0.08);
+        }
+        .song-hero-inner{ max-width:1120px; margin:0 auto; }
+        .song-title{
+            font-family:'Orbitron',system-ui;
+            font-size:clamp(28px, 4.4vw, 54px);
+            line-height:1.15;
+            letter-spacing:0.04em;
+            color:var(--neon);
+            margin:0 0 16px;
+            text-shadow:0 0 18px rgba(0,243,217,0.45), 0 0 42px rgba(0,170,255,0.25);
+        }
+        .song-sub{
+            max-width:720px;
+            margin:0 auto 36px;
+            font-size:clamp(16px, 1.6vw, 20px);
+            line-height:1.55;
+            color:#dbe9ff;
+            opacity:0.95;
+        }
+        .tiers{
+            display:grid;
+            grid-template-columns:repeat(3, minmax(0, 1fr));
+            gap:22px;
+            align-items:stretch;
+            margin:0 auto 36px;
+        }
+        .tier{
+            position:relative;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:10px;
+            padding:30px 22px 26px;
+            border-radius:16px;
+            background:linear-gradient(180deg, rgba(10,14,40,0.92), rgba(4,5,18,0.92));
+            border:1px solid rgba(0,243,217,0.22);
+            box-shadow:0 10px 40px rgba(0,0,0,0.55), inset 0 0 24px rgba(0,243,217,0.04);
+            color:#f5f7ff;
+            text-decoration:none;
+            transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+        .tier:hover, .tier:focus-visible{
+            transform:translateY(-4px);
+            border-color:rgba(0,243,217,0.6);
+            box-shadow:0 16px 50px rgba(0,170,255,0.18), 0 0 0 1px rgba(0,243,217,0.25);
+            outline:none;
+        }
+        .tier-name{
+            font-family:'Orbitron',system-ui;
+            font-weight:700;
+            font-size:18px;
+            letter-spacing:0.04em;
+            color:#fff;
+        }
+        .tier-price{
+            font-family:'Orbitron',system-ui;
+            font-weight:700;
+            font-size:40px;
+            color:var(--neon);
+            text-shadow:0 0 14px rgba(0,243,217,0.4);
+            line-height:1.1;
+        }
+        .tier-desc{
+            font-size:15px;
+            line-height:1.5;
+            opacity:0.88;
+            max-width:260px;
+        }
+        .tier.featured{
+            border:1px solid rgba(0,243,217,0.75);
+            background:linear-gradient(180deg, rgba(0,60,80,0.55), rgba(4,5,18,0.95));
+            box-shadow:0 14px 60px rgba(0,243,217,0.18), 0 0 0 1px rgba(14,165,255,0.35);
+            transform:translateY(-8px);
+        }
+        .tier.featured:hover, .tier.featured:focus-visible{ transform:translateY(-12px); }
+        .tier-badge{
+            position:absolute;
+            top:-13px;
+            left:50%;
+            transform:translateX(-50%);
+            padding:5px 14px;
+            border-radius:999px;
+            background:linear-gradient(90deg,var(--accent-blue),var(--neon));
+            color:#001;
+            font-size:12px;
+            font-weight:800;
+            letter-spacing:0.06em;
+            text-transform:uppercase;
+            white-space:nowrap;
+            box-shadow:0 6px 20px rgba(0,243,217,0.3);
+        }
+        .song-cta{
+            display:inline-block;
+            padding:18px 38px;
+            border-radius:999px;
+            background:linear-gradient(90deg,var(--accent-blue),var(--neon));
+            color:#001;
+            font-weight:800;
+            font-size:18px;
+            letter-spacing:0.02em;
+            text-decoration:none;
+            box-shadow:0 10px 40px rgba(14,165,255,0.3);
+            border:1px solid rgba(255,255,255,0.1);
+            transition:transform .2s ease, box-shadow .2s ease;
+        }
+        .song-cta:hover, .song-cta:focus-visible{
+            transform:translateY(-3px) scale(1.02);
+            box-shadow:0 16px 54px rgba(0,243,217,0.4);
+        }
+        .song-note{
+            margin:14px 0 0;
+            font-size:14px;
+            color:#bcd;
+            opacity:0.9;
+        }
+        @media (max-width:900px){
+            .tiers{ grid-template-columns:1fr; max-width:440px; gap:26px; }
+            .tier.featured, .tier.featured:hover, .tier.featured:focus-visible{ transform:none; }
+        }
+        @media (max-width:600px){
+            .song-hero{ padding:32px 16px 28px; }
+            .song-sub{ margin-bottom:28px; }
+            .tier{ padding:24px 18px 20px; }
+            .tier-price{ font-size:34px; }
+            .song-cta{ display:block; padding:16px 20px; font-size:17px; }
+        }
+
+        /* ===== Phones ===== */
+        @media (max-width:600px){
+            .site-header .header-inner{
+                flex-direction:column;
+                gap:8px;
+                padding:6px 12px 12px;
+            }
+            .brand-wrap{ flex-direction:column; gap:0; }
+            /* logo PNG has a lot of transparent padding; trim it visually */
+            .brand{ height:150px; width:auto; margin:-45px 0 -45px; }
+            .handwritten{ font-size:18px; }
+            .topnav{ justify-content:center; gap:6px; }
+            .pill{ padding:8px 10px; font-size:13px; }
+            .pill.cta-app, .discord-cta{ padding:9px 12px; font-size:13px; }
+            #volToggleBtn{ padding:6px 10px !important; }
+            .hero{ flex-direction:column; }
+            .center{ padding:12px 10px 8px; }
+            .media-frame{ border-width:10px; padding:8px; }
+            .social-bar{
+                position:relative;
+                left:auto;
+                bottom:auto;
+                transform:none;
+                padding:8px 10px 4px;
+            }
+            .gear-wrapper{ display:none; }
+        }
+
     </style>
 </head>
 <body>
     <header class="site-header">
         <div class="header-inner">
             <div class="brand-wrap">
-                <img src="JonnyAFK Clear Background.png" alt="JonnyAFK" class="brand">
+                <img src="assets/img/logo-440.webp" alt="JonnyAFK" class="brand" width="220" height="220">
                 <div class="handwritten">
                     <div>Music · Art · Shenanigans</div>
                     <div class="handline">All in one hub</div>
@@ -418,40 +610,54 @@
                 <a class="pill" href="contact.html">Contact</a>
                 <a class="pill cta-app" href="https://your-song-maker.base44.app" target="_blank" rel="noopener">Your Song Maker</a>
                 <a id="discordCTA" class="pill discord-cta" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener" title="Join my Discord">Join Discord</a>
-                <button id="volToggleBtn" class="pill" aria-label="Toggle volume" style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px">
-                    <img id="volIcon" src="Neon blue volume off.png" alt="volume" style="width:28px;height:28px">
+                <button id="volToggleBtn" class="pill vol-off" aria-label="Play music" aria-pressed="false" title="Play music" style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px">
+                    <svg class="vol-icon vol-icon-off" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" fill-opacity=".25"/><path d="M17 9l5 6M22 9l-5 6"/></svg>
+                    <svg class="vol-icon vol-icon-on" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" fill-opacity=".25"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>
                 </button>
             </nav>
         </div>
     </header>
 
+    <section class="song-hero" id="custom-song" aria-labelledby="songTitle">
+        <div class="song-hero-inner">
+            <h1 class="song-title" id="songTitle">A song written just for them.</h1>
+            <p class="song-sub">Birthdays, anniversaries, proposals, inside jokes. Tell me your story, and I'll turn it into a real, professionally produced song.</p>
+
+            <div class="tiers">
+                <a class="tier" href="https://your-song-maker.base44.app">
+                    <span class="tier-name">Personal Song Lite</span>
+                    <span class="tier-price">$50</span>
+                    <span class="tier-desc">60 to 90 seconds, ready in 3 to 5 days.</span>
+                </a>
+                <a class="tier featured" href="https://your-song-maker.base44.app">
+                    <span class="tier-badge">Most popular</span>
+                    <span class="tier-name">Full Custom Song</span>
+                    <span class="tier-price">$125</span>
+                    <span class="tier-desc">2 to 3 minutes with a full arrangement, ready in 5 to 7 days.</span>
+                </a>
+                <a class="tier" href="https://your-song-maker.base44.app">
+                    <span class="tier-name">Premium Story Song</span>
+                    <span class="tier-price">$250</span>
+                    <span class="tier-desc">3 to 4 minutes with deeper lyrics, ready in 7 to 10 days.</span>
+                </a>
+            </div>
+
+            <a class="song-cta" href="https://your-song-maker.base44.app">Get your song started</a>
+            <p class="song-note">Ordering for Christmas? Get your order in by Dec 10.</p>
+        </div>
+    </section>
+
     <main class="hero" id="hero">
         <div class="overlay" aria-hidden="true"></div>
 
         <div class="center">
-            <div class="left">
-                <h1 class="site-title">JonnyAFK</h1>
-                <div class="tag">Music · Art · Merch · Apps — All in one hub</div>
-                <div class="buttons" id="navButtons">
-                    <button class="btn" data-link="music.html"><span class="label">Music</span><span class="glow"></span></button>
-                    <button class="btn" data-link="art.html"><span class="label">Art</span><span class="glow"></span></button>
-                    <button class="btn" data-link="merch.html"><span class="label">Merch</span><span class="glow"></span></button>
-                    <button class="btn" data-link="apps.html"><span class="label">Apps</span><span class="glow"></span></button>
-                    <button class="btn" data-link="about.html"><span class="label">About</span><span class="glow"></span></button>
-                    <button class="btn" data-link="contact.html"><span class="label">Contact</span><span class="glow"></span></button>
-                </div>
-            </div>
-
             <aside class="card">
                 <div class="media-frame" id="mediaFrame">
-                    <video class="media" id="heroMedia" playsinline muted poster="Screenshot 2026-02-15 125941.jpg">
-                        <source src="Landing Page (1).mp4" type="video/mp4">
-                        <!-- fallback image -->
-                        <img src="Screenshot 2026-02-15 125941.jpg" alt="JonnyAFK poster">
-                    </video>
+                    <!-- Static poster (sits under the looping video; was a second copy of the 20 MB video) -->
+                    <img class="media" id="heroMedia" src="assets/img/hero-poster.jpg" alt="JonnyAFK — Music · Art · Shenanigans" width="1280" height="720">
 
-                    <video id="backgroundVideo" class="bg-video" autoplay muted loop playsinline>
-                        <source src="Landing Page (1).mp4" type="video/mp4">
+                    <video id="backgroundVideo" class="bg-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg">
+                        <source src="assets/video/landing-720.mp4" type="video/mp4">
                     </video>
                 </div>
             </aside>
@@ -461,18 +667,18 @@
             <a class="social-btn" href="https://www.youtube.com/@jonnyafk" target="_blank" rel="noopener" title="YouTube">YouTube</a>
             <a class="social-btn" href="https://discord.gg/WMFDqpyvhc" target="_blank" rel="noopener" title="Discord">Discord</a>
             <a class="social-btn" href="https://music.youtube.com/search?q=jonnyafk" target="_blank" rel="noopener" title="YouTube Music">YT Music</a>
-            <a class="social-btn" href="https://open.spotify.com/search/jonnyafk" target="_blank" rel="noopener" title="Spotify">Spotify</a>
+            <a class="social-btn" href="https://open.spotify.com/artist/2aExNGy3Uyp7LHldYoK8T5" target="_blank" rel="noopener" title="Spotify">Spotify</a>
             <a class="social-btn" href="https://www.instagram.com/jonny_afk" target="_blank" rel="noopener" title="Instagram">Instagram</a>
             <a class="social-btn" href="https://www.tiktok.com/@jonny_afk0" target="_blank" rel="noopener" title="TikTok">TikTok</a>
             <a class="social-btn" href="https://www.pandora.com/search/jonnyafk" target="_blank" rel="noopener" title="Pandora">Pandora</a>
             <a class="social-btn" href="https://www.facebook.com/jonnyafk" target="_blank" rel="noopener" title="Facebook">Facebook</a>
             <a class="social-btn" href="https://www.patreon.com/jonnyafk" target="_blank" rel="noopener" title="Patreon">Patreon</a>
-            <a class="social-btn" href="https://music.apple.com/search?term=jonnyafk" target="_blank" rel="noopener" title="Apple Music">Apple Music</a>
+            <a class="social-btn" href="https://music.apple.com/us/artist/jonnyafk/1834073714" target="_blank" rel="noopener" title="Apple Music">Apple Music</a>
             <a class="social-btn" href="https://www.redbubble.com/people/jonnyafk/shop" target="_blank" rel="noopener" title="Redbubble">Redbubble</a>
             <a class="social-btn" href="mailto:jonnyafk@hotmail.com" title="Email">Email</a>
         </div>
 
-        <audio id="bgAudio" src="the song.mp3" loop preload="auto"></audio>
+        <audio id="bgAudio" src="the song.mp3" loop preload="none"></audio>
     </main>
 
     <footer>
@@ -538,11 +744,11 @@
             }catch(e){}
         })();
 
-        // Gears (using gear1.png, gear2.png, gear3.png, gear4.png)
+        // Gears (assets/img/gear1-4.webp)
         (function(){
             const pairs = [
-                {files:['gear4.png','gear2.png'], anchor:'top-right', style:{right:'6%', top:'6%'}, sizes:[160,96]},
-                {files:['gear1.png','gear3.png'], anchor:'left-middle', style:{left:'6%', top:'50%'}, sizes:[160,96]}
+                {files:['assets/img/gear4.webp','assets/img/gear2.webp'], anchor:'top-right', style:{right:'6%', top:'6%'}, sizes:[160,96]},
+                {files:['assets/img/gear1.webp','assets/img/gear3.webp'], anchor:'left-middle', style:{left:'6%', top:'50%'}, sizes:[160,96]}
             ];
 
             const wrapper = document.createElement('div');
@@ -662,95 +868,34 @@
             }, {passive:false});
         }
 
+        // Volume button: music only starts when the visitor clicks (no autoplay).
         (function(){
             const volBtn = document.getElementById('volToggleBtn');
-            const volIcon = document.getElementById('volIcon');
             const a = document.getElementById('bgAudio');
-            const ICON_ON = 'Neon blue volume on .png';
-            const ICON_ON_HOVER = 'Neon blue volume on hover.png';
-            const ICON_OFF = 'Neon blue volume off.png';
-            const ICON_OFF_HOVER = 'Neon blue volume off hover.png';
-            if(!volBtn || !volIcon || !a) return;
+            if(!volBtn || !a) return;
 
-            volIcon.dataset.on = encodeURI(ICON_ON.trim());
-            volIcon.dataset.onHover = encodeURI(ICON_ON_HOVER.trim());
-            volIcon.dataset.off = encodeURI(ICON_OFF.trim());
-            volIcon.dataset.offHover = encodeURI(ICON_OFF_HOVER.trim());
-
-            volIcon.onerror = function(){
-                console.warn('volume icon failed to load', volIcon.src);
-                volIcon.style.display = 'none';
-                const parent = volIcon.parentNode;
-                if(parent && !parent.querySelector('.vol-emoji')){
-                    const fb = document.createElement('span');
-                    fb.className = 'vol-emoji';
-                    fb.textContent = '🔊';
-                    fb.style.fontSize = '18px';
-                    fb.style.color = 'var(--neon)';
-                    fb.style.display = 'inline-block';
-                    fb.style.marginLeft = '2px';
-                    parent.appendChild(fb);
-                }
-            };
-
-            function setOn(){ volIcon.src = volIcon.dataset.on || ICON_ON; volBtn.classList.add('vol-on'); volBtn.classList.remove('vol-off'); }
-            function setOff(){ volIcon.src = volIcon.dataset.off || ICON_OFF; volBtn.classList.add('vol-off'); volBtn.classList.remove('vol-on'); }
-
-            let __flashTimer = null;
-            function startFlashing(){
-                if(__flashTimer) return;
-                let showOn = false;
-                __flashTimer = setInterval(()=>{
-                    showOn = !showOn;
-                    volIcon.src = showOn ? (volIcon.dataset.on || ICON_ON) : (volIcon.dataset.off || ICON_OFF);
-                }, 600);
-                volBtn.classList.add('vol-need-click');
+            function refresh(){
+                const on = !a.paused && !a.muted;
+                volBtn.classList.toggle('vol-on', on);
+                volBtn.classList.toggle('vol-off', !on);
+                volBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+                volBtn.setAttribute('aria-label', on ? 'Pause music' : 'Play music');
+                volBtn.title = on ? 'Pause music' : 'Play music';
             }
-            function stopFlashing(){ if(__flashTimer){ clearInterval(__flashTimer); __flashTimer = null; } volBtn.classList.remove('vol-need-click'); refresh(); }
-
-            function refresh(){ if(!a.paused && !a.muted){ setOn(); } else { setOff(); } }
 
             volBtn.addEventListener('click', async (e)=>{
                 e.preventDefault();
                 try{
                     if(a.paused){ a.muted = false; a.volume = 1; await a.play(); }
-                    else { a.pause(); a.muted = true; }
+                    else { a.pause(); }
                 }catch(err){ console.warn('volBtn play failed', err); }
                 refresh();
             });
 
-            volBtn.addEventListener('mouseenter', ()=>{ volIcon.src = (!a.paused && !a.muted) ? volIcon.dataset.onHover || ICON_ON_HOVER : volIcon.dataset.offHover || ICON_OFF_HOVER; });
-            volBtn.addEventListener('mouseleave', refresh);
-
             a.addEventListener('play', refresh);
             a.addEventListener('pause', refresh);
             a.addEventListener('volumechange', refresh);
-
-            setTimeout(refresh, 80);
-
-            (async function tryAutoplay(){
-                try{
-                    a.muted = false; a.volume = 1;
-                    await a.play();
-                }catch(err){
-                    try{
-                        a.muted = true;
-                        await a.play();
-                    }catch(err2){
-                        try{
-                            const volBtn = document.getElementById('volToggleBtn');
-                            if(volBtn){
-                                volBtn.setAttribute('title','Click to enable sound');
-                                startFlashing();
-                                const removeHighlight = ()=>{ stopFlashing(); volBtn.removeEventListener('click', removeHighlight); };
-                                volBtn.addEventListener('click', removeHighlight);
-                                setTimeout(()=>{ stopFlashing(); }, 12000);
-                            }
-                        }catch(_){}
-                    }
-                }
-                setTimeout(refresh, 60);
-            })();
+            refresh();
         })();
     </script>
 </body>
